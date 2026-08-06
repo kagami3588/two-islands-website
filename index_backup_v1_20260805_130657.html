@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TWO ISLANDS — 二つの島の奇跡を、その手に。</title>
+<meta name="description" content="日本とスリランカ、二つの島に眠る神話を一本のジュエリーで結ぶ。占星術鑑定から採掘体験、ジュエリー製作までを提供するブランド TWO ISLANDS。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Cinzel:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF9F6;
+  --bg-blue:#EFF3F6;
+  --ink:#1A1A18;
+  --body:#4B4A45;
+  --muted:#8C887F;
+  --line:rgba(26,26,24,.12);
+  --line-strong:rgba(26,26,24,.24);
+  --gold:#B08D3E;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--body);
+  font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-size:16px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 6vw;}
+.jp{font-family:"Shippori Mincho",serif;}
+.display{font-family:"Playfair Display",serif;}
+.label{font-family:Cinzel,serif;}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:26px 6vw;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  transition:padding .4s,border-color .4s,background .4s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{
+  padding:16px 6vw;
+  background:rgba(250,249,246,.92);
+  backdrop-filter:blur(8px);
+  border-bottom-color:var(--line);
+}
+.logo-block .logo{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.3em;font-weight:500;color:var(--ink);}
+.logo-block .sub{display:block;font-family:Cinzel,serif;font-size:8.5px;letter-spacing:.22em;color:var(--muted);margin-top:4px;text-transform:lowercase;}
+nav{display:flex;gap:30px;align-items:center;}
+nav a{font-size:12.5px;letter-spacing:.02em;color:var(--body);text-transform:lowercase;position:relative;}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+nav a:hover::after{transform:scaleX(1);}
+nav .cta-link{color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:2px;}
+.nav-toggle{display:none;font-size:11px;letter-spacing:.1em;color:var(--body);}
+@media(max-width:860px){nav{display:none;}.nav-toggle{display:block;}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;overflow:hidden;
+  padding:8vh 6vw;
+  background:radial-gradient(ellipse at 50% 20%, var(--bg-blue) 0%, var(--bg) 65%);
+}
+.hero-clouds{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:.5;}
+.cloud-layer{position:absolute;top:0;left:0;width:220%;height:100%;background-repeat:no-repeat;will-change:transform;}
+.cloud-layer.c1{background-image:radial-gradient(ellipse 34% 22% at 12% 30%, rgba(176,141,62,.08), transparent 70%),radial-gradient(ellipse 26% 16% at 40% 55%, rgba(26,26,24,.05), transparent 70%),radial-gradient(ellipse 30% 20% at 68% 20%, rgba(26,26,24,.05), transparent 70%);animation:cloudDrift1 130s linear infinite;}
+.cloud-layer.c2{background-image:radial-gradient(ellipse 30% 18% at 25% 65%, rgba(26,26,24,.04), transparent 70%),radial-gradient(ellipse 22% 24% at 58% 35%, rgba(176,141,62,.06), transparent 70%),radial-gradient(ellipse 28% 16% at 85% 60%, rgba(26,26,24,.04), transparent 70%);animation:cloudDrift2 170s linear infinite;animation-delay:-60s;}
+@keyframes cloudDrift1{from{transform:translateX(0);}to{transform:translateX(-45.45%);}}
+@keyframes cloudDrift2{from{transform:translateX(-45.45%);}to{transform:translateX(0);}}
+@media(prefers-reduced-motion:reduce){.cloud-layer{animation:none;}}
+.hero-inner{position:relative;z-index:3;max-width:760px;}
+.eyebrow{font-family:Cinzel,serif;font-size:13px;letter-spacing:.28em;color:var(--muted);text-transform:lowercase;}
+.hero-eyebrow{margin-bottom:44px;opacity:0;transition:opacity 1.4s ease;}
+.hero-eyebrow.show{opacity:1;}
+.hero h1{
+  color:var(--ink);font-family:"Shippori Mincho",serif;font-weight:500;
+  font-size:clamp(30px,5.4vw,58px);line-height:1.6;margin-bottom:40px;
+  text-wrap:balance;opacity:0;transform:translateY(14px);
+  transition:opacity 1.4s ease,transform 1.4s ease;
+}
+.hero h1.show{opacity:1;transform:none;}
+.hero-loc{font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:48px;opacity:0;transition:opacity 1.6s ease;}
+.hero-loc.show{opacity:1;}
+.hero-cta{opacity:0;transition:opacity 1.8s ease;}
+.hero-cta.show{opacity:1;}
+.scroll-cue{position:absolute;left:50%;bottom:5vh;transform:translateX(-50%);color:var(--muted);font-size:9.5px;writing-mode:vertical-rl;height:52px;font-family:Cinzel,serif;z-index:3;}
+.scroll-cue::after{content:"";position:absolute;left:50%;bottom:-4px;width:1px;height:24px;background:linear-gradient(to bottom,var(--line-strong),transparent);animation:scl 2.6s ease-in-out infinite;}
+@keyframes scl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- shared section styles ---------- */
+section{padding:15vh 0;}
+.label-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:26px;}
+.label-row .ln{width:34px;height:1px;background:var(--line-strong);}
+h2.big{text-align:center;font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(28px,4.6vw,52px);line-height:1.15;letter-spacing:.01em;color:var(--ink);margin-bottom:38px;text-wrap:balance;}
+.jp-body{text-align:center;color:var(--body);max-width:640px;margin:0 auto;font-family:"Shippori Mincho",serif;font-size:14px;line-height:2.5;letter-spacing:.02em;}
+.fade{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease;}
+.fade.show{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none;}}
+.center{text-align:center;}
+.btn-line{
+  display:inline-block;background:var(--ink);border:1px solid var(--ink);color:var(--bg);
+  padding:19px 54px;font-family:Cinzel,serif;font-size:12px;font-weight:600;
+  letter-spacing:.22em;text-transform:lowercase;
+  transition:background .4s,border-color .4s,transform .3s,color .4s;
+}
+.btn-line:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-2px);}
+.view-link{display:inline-flex;align-items:center;gap:10px;margin-top:40px;font-family:Cinzel,serif;font-size:11.5px;letter-spacing:.2em;color:var(--ink);text-transform:lowercase;padding-bottom:2px;border-bottom:1px solid var(--line-strong);}
+.view-link .ar{transition:transform .4s;}
+.view-link:hover .ar{transform:translateX(6px);}
+
+/* ---------- brand story ---------- */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:60px auto 0;max-width:960px;background:var(--line);}
+.story-col{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg-blue);display:flex;align-items:flex-end;padding:0;}
+.story-col .ph{position:absolute;inset:0;background:linear-gradient(160deg, var(--bg-blue) 0%, #E4E9EE 55%, #D8E0E6 100%);}
+.story-cap{position:relative;z-index:1;padding:26px 26px 30px;background:linear-gradient(to top, rgba(250,249,246,.94), transparent);width:100%;}
+.story-cap .en{font-family:Cinzel,serif;font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:lowercase;margin-bottom:10px;}
+.story-cap h3{font-family:"Shippori Mincho",serif;font-size:17px;color:var(--ink);margin-bottom:12px;letter-spacing:.02em;}
+.story-cap p{font-family:"Shippori Mincho",serif;font-size:12px;color:var(--body);line-height:2.1;max-width:340px;}
+@media(max-width:700px){.story-grid{grid-template-columns:1fr;}}
+
+/* ---------- history ---------- */
+.history{max-width:640px;margin:80px auto 0;border-top:1px solid var(--line);padding-top:60px;text-align:center;}
+.history .yr{font-family:"Playfair Display",serif;font-size:15px;color:var(--body);letter-spacing:.1em;margin-bottom:24px;}
+.history p{font-family:"Shippori Mincho",serif;font-size:13.5px;line-height:2.4;color:var(--body);margin-bottom:18px;}
+.history .quote{margin:28px auto;padding:24px 30px;border-left:1px solid var(--line-strong);text-align:left;max-width:460px;}
+.history .quote p{color:var(--ink);font-size:14px;line-height:2.2;margin:0;font-style:italic;}
+
+/* ---------- craftsmanship ---------- */
+.craft-list{max-width:660px;margin:70px auto 0;}
+.craft-row{display:flex;gap:28px;padding:34px 0;border-top:1px solid var(--line);align-items:baseline;}
+.craft-row:last-child{border-bottom:1px solid var(--line);}
+.craft-idx{font-family:"Playfair Display",serif;font-size:14px;color:var(--gold);flex-shrink:0;width:30px;}
+.craft-row h4{font-family:"Shippori Mincho",serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:.03em;}
+.craft-row .en-sub{font-family:Cinzel,serif;font-size:9.5px;letter-spacing:.15em;color:var(--muted);text-transform:lowercase;margin-bottom:10px;display:block;}
+.craft-row p{font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--muted);line-height:2.2;}
+
+/* ---------- philosophy ---------- */
+.philosophy{background:var(--bg-blue);}
+.philosophy blockquote{
+  max-width:680px;margin:0 auto;text-align:center;
+  font-family:"Shippori Mincho",serif;font-size:clamp(17px,2.2vw,22px);
+  line-height:2.3;color:var(--ink);letter-spacing:.02em;
+}
+
+/* ---------- three journeys ---------- */
+.j-wrap{position:relative;max-width:1180px;margin:70px auto 0;padding-left:44px;}
+.j-vlabel{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;}
+.j-vlabel span{writing-mode:vertical-rl;font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.3em;color:var(--muted);text-transform:lowercase;}
+.j-item{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:90px 0;border-top:1px solid var(--line);}
+.j-item:first-child{border-top:none;}
+.j-item:nth-child(even) .j-photo{order:2;}
+.j-item:nth-child(even) .j-text{order:1;}
+.j-photo{aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg, var(--bg-blue) 0%, #E4E9EE 55%, #D8E0E6 100%);position:relative;}
+.j-photo .j-num-lg{position:absolute;bottom:20px;right:26px;font-family:"Playfair Display",serif;font-size:64px;color:rgba(26,26,24,.08);}
+.j-name{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(30px,4vw,48px);color:var(--ink);letter-spacing:.02em;margin-bottom:10px;}
+.j-name-sub{display:block;font-family:"Shippori Mincho",serif;font-size:13px;color:var(--muted);letter-spacing:.05em;margin-bottom:26px;}
+.j-tagline{font-family:"Shippori Mincho",serif;font-size:15px;color:var(--ink);margin-bottom:26px;letter-spacing:.03em;}
+.j-desc{font-family:"Shippori Mincho",serif;font-size:13.5px;line-height:2.4;color:var(--body);max-width:440px;margin-bottom:40px;}
+.j-meta{display:flex;flex-direction:column;gap:6px;margin-bottom:44px;font-family:"Shippori Mincho",serif;font-size:12px;color:var(--muted);}
+.j-meta b{color:var(--body);font-weight:500;}
+.j-footer-row{display:flex;align-items:center;justify-content:space-between;max-width:440px;}
+.j-num{font-family:Cinzel,serif;font-size:12px;color:var(--muted);letter-spacing:.05em;}
+@media(max-width:860px){
+  .j-item{grid-template-columns:1fr;gap:32px;padding:60px 0;}
+  .j-item:nth-child(even) .j-photo,.j-item:nth-child(even) .j-text{order:0;}
+  .j-wrap{padding-left:30px;}
+}
+
+/* ---------- faq ---------- */
+.faq-list{max-width:700px;margin:60px auto 0;}
+.faq-row{border-top:1px solid var(--line);}
+.faq-row:last-child{border-bottom:1px solid var(--line);}
+.faq-q{padding:26px 4px;display:flex;justify-content:space-between;gap:20px;cursor:pointer;font-family:"Shippori Mincho",serif;font-size:14.5px;color:var(--ink);letter-spacing:.02em;}
+.faq-q .mk{font-family:"Playfair Display",serif;color:var(--muted);transition:transform .4s;flex-shrink:0;}
+.faq-row.open .mk{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+.faq-row.open .faq-a{max-height:260px;}
+.faq-a p{padding:0 4px 26px;font-family:"Shippori Mincho",serif;font-size:13px;color:var(--muted);line-height:2.3;max-width:600px;}
+
+/* ---------- final cta ---------- */
+.final{text-align:center;padding-bottom:22vh;}
+.final .jp-body{margin-bottom:52px;}
+.final-note{margin-top:26px;font-family:"Shippori Mincho",serif;font-size:11.5px;color:var(--muted);letter-spacing:.06em;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
+.foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;max-width:1100px;margin:0 auto;}
+.foot-logo{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.28em;color:var(--ink);}
+.foot-cols{display:flex;gap:60px;flex-wrap:wrap;}
+.foot-col h5{font-family:Cinzel,serif;font-size:10px;letter-spacing:.18em;color:var(--muted);margin-bottom:16px;text-transform:lowercase;font-weight:400;}
+.foot-col a{display:block;font-size:12.5px;color:var(--body);margin-bottom:11px;text-transform:lowercase;}
+.foot-col a:hover{color:var(--ink);}
+.foot-bottom{max-width:1100px;margin:36px auto 0;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:"Shippori Mincho",serif;color:var(--muted);font-size:10.5px;line-height:1.9;}
+
+@media(max-width:640px){section{padding:11vh 0;}}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <a class="logo-block" href="index.html">
+    <span class="logo">TWO ISLANDS</span>
+    <span class="sub">Serendib Journey</span>
+  </a>
+  <nav>
+    <a href="#story">story</a>
+    <a href="#craft">craft</a>
+    <a href="#journeys">journeys</a>
+    <a href="#faq">faq</a>
+    <a class="cta-link" href="reading.html">鑑定を申し込む</a>
+  </nav>
+  <div class="nav-toggle">menu</div>
+</header>
+
+<!-- ---------- hero ---------- -->
+<section class="hero">
+  <div class="hero-clouds"><div class="cloud-layer c1"></div><div class="cloud-layer c2"></div></div>
+  <div class="hero-inner">
+    <p class="eyebrow hero-eyebrow" id="heroEyebrow">Two Islands, One Myth</p>
+    <h1 id="heroH1">二つの島の<br>奇跡を、その手に。</h1>
+    <p class="hero-loc" id="heroLoc">KYOTO, JAPAN — COLOMBO, SRI LANKA</p>
+    <div class="hero-cta" id="heroCta"><a class="btn-line" href="reading.html">占星術鑑定を申し込む　→</a></div>
+  </div>
+  <span class="scroll-cue">scroll</span>
+</section>
+
+<!-- ---------- brand story ---------- -->
+<section id="story">
+  <div class="wrap">
+    <div class="label-row fade"><span class="ln"></span><span class="eyebrow">brand story</span><span class="ln"></span></div>
+    <h2 class="big fade">世界に一つの輝きには、<br>世界に一つの物語がある。</h2>
+
+    <div class="story-grid fade">
+      <div class="story-col">
+        <div class="ph"></div>
+        <div class="story-cap">
+          <div class="en">japan / yakushima</div>
+          <h3 class="jp">苔むす森に、神は宿る。</h3>
+          <p class="jp">樹齢千年を超える屋久杉が霧の中に立ち、苔むした岩の間を清水が流れる。古来より人々はこの森に神の気配を感じ、祈りを捧げてきた。八百万の神という思想は、こうした自然そのものへの畏敬から生まれている。</p>
+        </div>
+      </div>
+      <div class="story-col">
+        <div class="ph"></div>
+        <div class="story-cap">
+          <div class="en">sri lanka / sigiriya</div>
+          <h3 class="jp">大地の岩に、神々は座す。</h3>
+          <p class="jp">密林の中に突如そびえる巨岩シーギリヤ。かつて王が宮殿を築いたこの地には、今も無数の神々の伝承が息づく。大地の奥深くに眠る宝石もまた、神々からの贈り物として語り継がれてきた。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="history fade">
+      <p class="eyebrow">History — 史実パート</p>
+      <h2 class="big" style="margin-top:22px;font-size:clamp(22px,3.4vw,34px);">神話だけではない。<br>二つの島は、史実でも結ばれていた。</h2>
+      <p class="yr display">1951 — San Francisco Peace Conference</p>
+      <p>1951年、サンフランシスコ講和会議。敗戦国・日本の処遇を巡り各国の意見が対立するなか、スリランカ代表J・R・ジャヤワルデナは日本への賠償請求権を放棄した。この演説は、日本の国際社会復帰を後押しした史実として今も語り継がれている。</p>
+      <div class="quote">
+        <p class="jp">「憎悪は憎悪によって鎮まらず、愛によってのみ鎮まる」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- craftsmanship ---------- -->
+<section id="craft" style="background:var(--bg-blue);">
+  <div class="wrap">
+    <div class="label-row fade"><span class="ln"></span><span class="eyebrow">craftsmanship</span><span class="ln"></span></div>
+    <h2 class="big fade">星を読み、大地を掘り、<br>ひとつの物語をかたちにする。</h2>
+
+    <div class="craft-list fade">
+      <div class="craft-row">
+        <span class="craft-idx display">01</span>
+        <div>
+          <span class="en-sub">read the stars</span>
+          <h4>占星術鑑定</h4>
+          <p>生年月日・出生時刻・出生地から、あなたの星の配置を読み解く。占星術師による鑑定は、宝石選びの入り口であると同時に、自分自身と向き合う最初の一歩でもある。</p>
+        </div>
+      </div>
+      <div class="craft-row">
+        <span class="craft-idx display">02</span>
+        <div>
+          <span class="en-sub">dig the earth</span>
+          <h4>採掘体験</h4>
+          <p>鑑定で導き出された石を求め、スリランカの大地へ。泥にまみれ、自らの手で掘り起こす原石には、産地でしか出会えない一期一会の輝きが宿る。</p>
+        </div>
+      </div>
+      <div class="craft-row">
+        <span class="craft-idx display">03</span>
+        <div>
+          <span class="en-sub">shape the story</span>
+          <h4>ジュエリー製作</h4>
+          <p>採れた原石を日本で研磨・加工し、完全オーダーメイドのジュエリーへ。渡すその日から、その先の何十年へ——物語は石とともに受け継がれていく。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- philosophy ---------- -->
+<section class="philosophy">
+  <div class="wrap fade">
+    <blockquote class="jp">私たちは、物を売っているのではない。<br>ジュエリーを手にした先にある「人生の節目」という<br>”物語”を、お届けしている。</blockquote>
+  </div>
+</section>
+
+<!-- ---------- three journeys ---------- -->
+<section id="journeys">
+  <div class="wrap">
+    <div class="label-row fade"><span class="ln"></span><span class="eyebrow">three journeys, one myth</span><span class="ln"></span></div>
+    <h2 class="big fade">同じ旅を、三つの物語で。</h2>
+  </div>
+
+  <div class="j-wrap">
+    <div class="j-vlabel"><span>choose your path</span></div>
+
+    <div class="j-item fade">
+      <div class="j-photo"><span class="j-num-lg display">01</span></div>
+      <div class="j-text">
+        <h3 class="j-name display">Myth</h3>
+        <span class="j-name-sub jp">神話の旅</span>
+        <p class="j-tagline jp">「石には、神様が宿っている。」</p>
+        <p class="j-desc jp">誰のため：自分自身のため。文化・神話への知的な憧れを軸に、自分用のジュエリー・人生の節目・お守りとして。</p>
+        <div class="j-footer-row">
+          <span class="j-num">01</span>
+          <a class="view-link" href="myth.html">view myth <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="j-item fade">
+      <div class="j-photo"><span class="j-num-lg display">02</span></div>
+      <div class="j-text">
+        <h3 class="j-name display">Vow</h3>
+        <span class="j-name-sub jp">運命の旅</span>
+        <p class="j-tagline jp">「選んだのは、あなたではない。」</p>
+        <p class="j-desc jp">誰のため：大切な人のため。かけた時間が二人をつなぐ、マリッジ・記念日の贈り物として。</p>
+        <div class="j-footer-row">
+          <span class="j-num">02</span>
+          <a class="view-link" href="vow.html">view vow <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="j-item fade">
+      <div class="j-photo"><span class="j-num-lg display">03</span></div>
+      <div class="j-text">
+        <h3 class="j-name display">Legacy</h3>
+        <span class="j-name-sub jp">継承の旅</span>
+        <p class="j-tagline jp">「いつか渡す日を、もう決めてある。」</p>
+        <p class="j-desc jp">誰のため：子・孫・大切な人のため。受け継ぐ・遺すという感情を軸に、人生の節目の一本として。</p>
+        <div class="j-footer-row">
+          <span class="j-num">03</span>
+          <a class="view-link" href="legacy.html">view legacy <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- faq ---------- -->
+<section id="faq" style="background:var(--bg-blue);">
+  <div class="wrap">
+    <div class="label-row fade"><span class="ln"></span><span class="eyebrow">before you begin</span><span class="ln"></span></div>
+    <h2 class="big fade">よくあるご質問</h2>
+
+    <div class="faq-list fade">
+      <div class="faq-row">
+        <div class="faq-q"><span>占星術鑑定のみの申込は可能ですか？</span><span class="mk">+</span></div>
+        <div class="faq-a"><p>可能です。鑑定のみのお申し込みも承っております。鑑定結果をもとに、採掘体験やジュエリープランは後日ご案内いたします。</p></div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q"><span>スリランカへの渡航は必須ですか？</span><span class="mk">+</span></div>
+        <div class="faq-a"><p>必須ではありません。現地採掘のほか、渡航不要のバーチャル採掘（オンライン完結）も選択いただけます。</p></div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q"><span>採掘で石が出なかった場合はどうなりますか？</span><span class="mk">+</span></div>
+        <div class="faq-a"><p>採掘は最大3回まで実施し、出た石から選んでいただきます。それでも出なければ過去に採掘された石からご案内します。契約金額分の石は必ずご用意いたします。</p></div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q"><span>料金はどこで確認できますか？</span><span class="mk">+</span></div>
+        <div class="faq-a"><p>各プランの料金は個別にお問い合わせください。占星術鑑定料金（30,000円・税込）のみ、鑑定申込フォームに表示しております。</p></div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q"><span>ジュエリーに資産価値はありますか？</span><span class="mk">+</span></div>
+        <div class="faq-a"><p>本サービスは資産運用・投資を目的としたものではなく、将来価値をお約束するものではございません。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- final cta ---------- -->
+<section class="final" id="cta">
+  <div class="wrap fade">
+    <p class="eyebrow">Begin Your Journey</p>
+    <h2 class="big" style="margin-top:22px;">まずは、あなたの星を<br>知るところから。</h2>
+    <p class="jp-body">生年月日から星の配置を読み解く占星術鑑定が、すべての旅のはじまりです。</p>
+    <a class="btn-line" href="reading.html">占星術鑑定を申し込む　→</a>
+    <p class="final-note">© 2026 O-HA-SHI GK. All Rights Reserved.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-logo">TWO ISLANDS</div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h5>about</h5>
+        <a href="company.html">会社概要</a>
+        <a href="#story">story</a>
+        <a href="#journeys">journeys</a>
+        <a href="#faq">faq</a>
+      </div>
+      <div class="foot-col">
+        <h5>support</h5>
+        <a href="reading.html">鑑定申込フォーム</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+      <div class="foot-col">
+        <h5>legal</h5>
+        <a href="company.html">特定商取引法に基づく表記</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
+        <a href="#">キャンセルポリシー</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 O-HA-SHI GK. All Rights Reserved.</span>
+    <span>Two Islands, One Myth.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // header scroll state
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  });
+
+  // hero entrance
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.getElementById('heroEyebrow').classList.add('show');
+      document.getElementById('heroH1').classList.add('show');
+      document.getElementById('heroLoc').classList.add('show');
+      document.getElementById('heroCta').classList.add('show');
+    }, 200);
+  });
+
+  // fade-in on scroll
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -5% 0px'});
+    document.querySelectorAll('.fade').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('show'); });
+  }
+  // safety fallback: ensure fade content is never stuck invisible
+  setTimeout(function(){
+    document.querySelectorAll('.fade:not(.show)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight + 400){ el.classList.add('show'); }
+    });
+  }, 1200);
+
+  // faq accordion
+  document.querySelectorAll('.faq-row').forEach(function(row){
+    row.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = row.classList.contains('open');
+      document.querySelectorAll('.faq-row.open').forEach(function(r){ r.classList.remove('open'); });
+      if(!isOpen){ row.classList.add('open'); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
