@@ -123,6 +123,18 @@ h2.big{text-align:center;font-family:"Playfair Display",serif;font-weight:400;fo
 .q-card{background:var(--bg);padding:30px 28px;}
 .q-card h4{font-family:"Shippori Mincho",serif;font-size:14.5px;margin-bottom:10px;color:var(--ink);}
 .q-card p{font-size:12.5px;color:var(--body);line-height:2;font-family:"Shippori Mincho",serif;}
+
+.voices{}
+.voice-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);max-width:1080px;margin:0 auto;}
+.voice-card{background:var(--bg);padding:36px 30px;}
+.voice-meta{font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.08em;color:var(--muted);text-transform:none;margin-bottom:18px;}
+.voice-quote{font-family:"Shippori Mincho",serif;font-size:14px;line-height:1.9;color:var(--ink);font-weight:600;margin-bottom:20px;}
+.voice-body{font-family:"Shippori Mincho",serif;font-size:12px;line-height:2.1;color:var(--body);max-height:220px;overflow:hidden;position:relative;}
+.voice-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom, transparent, var(--bg));}
+.voice-body p{margin-bottom:12px;}
+.voice-card:hover .voice-body{max-height:none;}
+.voice-card:hover .voice-body::after{opacity:0;}
+@media(max-width:860px){.voice-grid{grid-template-columns:1fr;}}
 @media(max-width:640px){.q-grid{grid-template-columns:1fr;}}
 
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);max-width:960px;margin:0 auto;}
@@ -405,6 +417,30 @@ footer{border-top:1px solid var(--line);padding:50px 6vw 34px;}
           <li>本ページに掲載の実話は、現地パートナーの実体験に基づくものです。ご本人・ご関係者への配慮のうえ、一部内容を編集しています。</li>
           <li>キャンセル・返金の条件については、お申し込み前にキャンセルポリシーを必ずご確認ください。</li>
         </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voices" class="voices">
+  <div class="wrap">
+    <div class="label-row"><span class="ln"></span><p class="eyebrow">voices</p><span class="ln"></span></div>
+    <h2 class="big fade">旅を終えた方々の、<br>その後の言葉。</h2>
+    <div class="voice-grid fade">
+      <div class="voice-card fade">
+        <p class="voice-meta">T・O様（59歳・会社経営者）</p>
+        <p class="voice-quote">「財産ではなく、自分がどう生きてきたかを残したかったんです。」</p>
+        <div class="voice-body"><p>会社を経営して長い年月が経ちました。ありがたいことに、会社も家族も、自分が築いてきたものは少しずつ形になってきました。</p><p>少しずつ体にガタが出てきて「自分がいなくなった後に、本当に子どもたちに残したいものは何だろう」そう考えることがあり、自分の人生を形に残すものとして、このリングを作ることを決めました。</p><p>スリランカへの移動の時間で、今までの人生を振り返る時間でもありました。仕事で悩んだこと。大切な人との出会い。家族との時間。いろいろなことを思い出しました。</p><p>当日は夢中で採掘体験をして、完成したリングを見た時、不思議な感覚でした。ただの宝石ではなく、自分が歩いてきた時間が詰まっているように感じました。</p><p>将来、子どもに渡す時には、「これは、お父さんが人生の中で大切だと思った石なんだよ」と伝えたいと思っています。金額や価値ではなく、そこに込めた想いを受け取ってもらえたら嬉しいです。</p><p>このリングは、自分の人生を語るための一つの形だと思っています。</p></div>
+      </div>
+      <div class="voice-card fade">
+        <p class="voice-meta">R・F様（52歳・税理士）</p>
+        <p class="voice-quote">「数字では表せないものが、人生にはあるんだと気づきました。」</p>
+        <div class="voice-body"><p>仕事柄、これまで多くの数字と向き合ってきました。会社の数字、資産、将来設計。もちろん、それらは人生を考える上で大切なものです。</p><p>でも、年齢を重ねる中で、「本当に最後まで残るものは何だろう」と考えることが増えてきました。</p><p>税理士という仕事をしていると、どうしても物事を数字で見る習慣があります。でも、この旅では数字では測れない経験をしました。普段の生活では、なかなか立ち止まって考えることがありませんでした。</p><p>完成したリングを見た時、最初に思ったのは「綺麗だな」ということでした。でも、それ以上に、その時の空気や感情まで一緒に思い出せることに価値を感じています。</p><p>将来、孫がこのリングを見て、「これは何？」と聞いてくれたら、きっとこの旅の話をすると思います。どこで見つけたのか。なぜこの石を選んだのか。その時、自分が何を感じていたのか。</p><p>そうやって次の世代に話を繋げられるものがあることは、とても幸せなことだと思います。</p></div>
+      </div>
+      <div class="voice-card fade">
+        <p class="voice-meta">C・Y様（38歳・映像監督）</p>
+        <p class="voice-quote">「今まで人の人生を撮ってきました。でも初めて、自分自身の人生を作品にしたような感覚でした。」</p>
+        <div class="voice-body"><p>映像の仕事をしているので、これまでたくさんの人の人生や想いを形にしてきました。誰かの大切な瞬間を撮影したり、その人の物語を伝えたり。それが自分の仕事です。</p><p>でも、ふと考えたことがありました。「自分自身の人生を、ちゃんと形に残したことはあるだろうか」そんな時に、この旅に出会いました。</p><p>スリランカで原石を探す時間は、普段の仕事とは全く違うものでした。カメラも持たず、誰かに見せるためでもなく、ただ自分自身のために過ごす時間。それがすごく新鮮でした。</p><p>原石を見つけた瞬間から、少しずつその石に意味が生まれていきました。「なぜこの石を選んだのか」「この時、自分は何を考えていたのか」</p><p>完成したリングを見た時、一本の映画が完成した時のような感覚がありました。でも、これは終わりではなく、これから先も続いていく物語なんだと思います。</p><p>将来、子どもにこのリングを渡す時には、「このリングそのものを大切にしてほしいんじゃない。このリングが生まれた時間や想いを知ってほしい」と伝えたいです。</p><p>人生には、形に残るものと、記憶に残るものがあります。このリングは、その両方を残してくれるものになりました。この旅で得た一番の価値は、世界に一つだけのリングではなく、自分自身の人生をもう一度見つめ直せたことだったと思います。</p></div>
       </div>
     </div>
   </div>

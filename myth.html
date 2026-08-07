@@ -92,6 +92,18 @@ table.gods td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-ali
 .q-card{background:var(--bg);padding:30px 28px;}
 .q-card h4{font-family:"Shippori Mincho",serif;font-size:14.5px;margin-bottom:10px;color:var(--ink);}
 .q-card p{font-size:12.5px;color:var(--body);line-height:2;font-family:"Shippori Mincho",serif;}
+
+.voices{}
+.voice-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);max-width:1080px;margin:0 auto;}
+.voice-card{background:var(--bg);padding:36px 30px;}
+.voice-meta{font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.08em;color:var(--muted);text-transform:none;margin-bottom:18px;}
+.voice-quote{font-family:"Shippori Mincho",serif;font-size:14px;line-height:1.9;color:var(--ink);font-weight:600;margin-bottom:20px;}
+.voice-body{font-family:"Shippori Mincho",serif;font-size:12px;line-height:2.1;color:var(--body);max-height:220px;overflow:hidden;position:relative;}
+.voice-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom, transparent, var(--bg));}
+.voice-body p{margin-bottom:12px;}
+.voice-card:hover .voice-body{max-height:none;}
+.voice-card:hover .voice-body::after{opacity:0;}
+@media(max-width:860px){.voice-grid{grid-template-columns:1fr;}}
 @media(max-width:640px){.q-grid{grid-template-columns:1fr;}}
 
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);max-width:960px;margin:0 auto;}
@@ -371,6 +383,30 @@ footer{border-top:1px solid var(--line);padding:50px 6vw 34px;}
           <li>トレジャーボックスは現地限定のご用意です。中身は採掘状況により異なります。</li>
           <li>キャンセル・返金の条件については、お申し込み前にキャンセルポリシーを必ずご確認ください。</li>
         </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voices" class="voices">
+  <div class="wrap">
+    <div class="label-row"><span class="ln"></span><p class="eyebrow">voices</p><span class="ln"></span></div>
+    <h2 class="big fade">旅を終えた方々の、<br>その後の言葉。</h2>
+    <div class="voice-grid fade">
+      <div class="voice-card fade">
+        <p class="voice-meta">K・S様（35歳・IT企業経営者）</p>
+        <p class="voice-quote">「リングを作りに行ったはずなのに、気づいたら自分自身を見つめ直す旅になっていました。」</p>
+        <div class="voice-body"><p>会社を経営していると、ありがたいことに周りから「順調ですね」「成功していますね」と言っていただく機会が増えました。</p><p>ただ、自分の中ではずっと違和感がありました。「このまま会社を大きくしていけば、本当に自分は満たされるのか」「そもそも、何のために頑張っているんだろう」そう考えている時に、この旅を知りました。</p><p>正直、最初は「自分だけのリングを作れる」という部分に興味を持ったのがきっかけでした。でも、占星術を受けた時に、その考えが大きく変わりました。</p><p>「あなたは自分が成果を出すことよりも、人を育てたり、その人の可能性を引き出すことで本来の力を発揮する人です」そう言われた瞬間、言葉が出ませんでした。</p><p>自分でも薄々感じていたけれど、忙しさを理由に見ないようにしていた部分だったと思います。誰にも話していなかったことを言われたような感覚になって、自然と涙が出ました。</p><p>スリランカで原石を探している時間も、今まで経験したことのない時間でした。ブランド品はネットや店舗で買うことができますが、実際に鉱山に行き、掘り出す作業をする経験は一生忘れられないです。</p><p>完成したリングを見ると、あの日のことを思い出します。このリングは、自分の人生をもう一度、自分で選び直した時の記憶を残してくれるものだと思っています。</p></div>
+      </div>
+      <div class="voice-card fade">
+        <p class="voice-meta">M・A様（30歳・看護師）</p>
+        <p class="voice-quote">「初めて、自分のために何かを選んでもいいんだと思えました。」</p>
+        <div class="voice-body"><p>看護師として働いていると、誰かのために動くことが当たり前になります。患者さんのことを考えて、周りのスタッフを気にして、気づけば、自分のことはいつも後回しになっていました。</p><p>ずっと働き続けて、気づいたら毎日変わり映えのない日々を過ごしていました。</p><p>今回スリランカで原石を探す時間は、本当に特別でした。普段の生活では、泥だらけになって何かを探すなんて絶対にありません。でも、その時間がすごく楽しくて、自然体の自分に戻れたような感覚がありました。</p><p>自分で見つけた原石がリングになった時は、本当に嬉しかったです。「このリングは、誰かのためじゃなく、自分自身のために選んだものなんだ」そう思えました。</p><p>仕事中は外していますが、家に帰った時に見ると、「少し自分のことも大切にしていいんだよ」と言われているような気持ちになって私のお守りのように感じています。</p></div>
+      </div>
+      <div class="voice-card fade">
+        <p class="voice-meta">T・H様（44歳・会社員）</p>
+        <p class="voice-quote">「まだ人生は変えられる。そう思えるきっかけになりました。」</p>
+        <div class="voice-body"><p>40代になって、生活も仕事も大きな不満があったわけではありません。でも、心のどこかにずっと引っかかっているものがありました。</p><p>「このまま毎日を過ごして、気づいたら人生が終わっていくのかな」そんなことを考えることが増えていました。何かを変えたい気持ちはある。でも、具体的に何を変えればいいのか分からない。そんな時に、このサービスを知りました。</p><p>最初は正直、「面白そうな経験だな」というくらいの気持ちでした。でも、実際にスリランカへ行って、原石を探している時間の中で、自分の考え方が少しずつ変わっていきました。</p><p>自分で掘って原石を手にした瞬間の興奮は今でも鮮明に覚えています。完成したリングを見た時、特別な感動というより、静かに嬉しい気持ちになりました。</p><p>「まだここから人生変わっていけるんだな」そう思えたことが、この旅で一番大きかったです。このリングは、過去を振り返るためだけではなく、これからの人生を楽しむためのお守りのような存在になっています。</p></div>
       </div>
     </div>
   </div>
