@@ -1,269 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASTROLOGY READING — 占星術鑑定のお申し込み | TWO ISLANDS</title>
 <meta name="description" content="あなたに宿る神話を知る、最初の一歩。占星術鑑定のお申し込みフォーム。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Cinzel:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A0801;--bg-raised:#150F08;--panel:#1B140C;
-  --ink:#F2F0EC;--body:#D9D7D4;--muted:#8C887F;
-  --line:rgba(217,215,212,.16);--line-strong:rgba(217,215,212,.32);
-  --gold:#C9A227;--gold-l:#E9D48F;--err:#C2704E;
+  --bg:#FAF9F6;
+  --bg-blue:#EFF3F6;
+  --ink:#1A1A18;
+  --body:#4B4A45;
+  --muted:#8C887F;
+  --line:rgba(26,26,24,.12);
+  --line-strong:rgba(26,26,24,.24);
+  --gold:#B08D3E;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--body);font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;}
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Cinzel:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap");
+body{
+  background:var(--bg);
+  color:var(--body);
+  font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-size:16px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 .wrap{max-width:760px;margin:0 auto;padding:0 6vw;}
+.jp{font-family:"Shippori Mincho",serif;}
+.display{font-family:"Playfair Display",serif;}
+.label{font-family:Cinzel,serif;}
 
-header{padding:26px 6vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);}
-.logo{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.3em;color:var(--ink);}
-.back-link{font-size:11.5px;letter-spacing:.08em;color:var(--body);border-bottom:1px solid var(--line-strong);padding-bottom:2px;}
-
-.intro{padding:90px 0 60px;text-align:center;}
-.eyebrow{font-family:Cinzel,serif;font-size:13px;letter-spacing:.32em;color:var(--gold-l);text-transform:lowercase;margin-bottom:28px;}
-.intro h1{font-family:"Shippori Mincho",serif;font-weight:500;font-size:clamp(24px,3.4vw,32px);line-height:1.9;color:var(--ink);margin-bottom:30px;}
-.intro p{font-family:"Shippori Mincho",serif;font-size:13.5px;line-height:2.4;color:var(--body);max-width:520px;margin:0 auto;}
-.intro .privacy-note{margin-top:26px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:22px;}
-
-form{padding-bottom:120px;}
-.f-section{border-top:1px solid var(--line);padding:52px 0;}
-.f-section:first-of-type{border-top:1px solid var(--line-strong);}
-.f-eyebrow{font-family:Cinzel,serif;font-size:11px;letter-spacing:.22em;color:var(--gold-l);text-transform:lowercase;margin-bottom:8px;}
-.f-title{font-family:"Shippori Mincho",serif;font-size:19px;color:var(--ink);margin-bottom:32px;}
-.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;}
-.f-grid.full{grid-template-columns:1fr;}
-.field{display:flex;flex-direction:column;gap:10px;}
-.field.span2{grid-column:1/-1;}
-.field label{font-size:12.5px;color:var(--body);display:flex;gap:8px;align-items:center;}
-.tag{font-family:Cinzel,serif;font-size:9px;letter-spacing:.1em;padding:2px 8px;border-radius:2px;text-transform:lowercase;}
-.tag.req{background:rgba(194,112,78,.18);color:#E3A98C;}
-.tag.opt{background:rgba(217,215,212,.1);color:var(--muted);}
-input[type=text],input[type=email],input[type=tel],select,textarea{
-  background:var(--panel);border:1px solid var(--line-strong);color:var(--ink);
-  font-family:inherit;font-size:14px;padding:13px 14px;width:100%;
+header{
+  position:relative;padding:26px 6vw;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  border-bottom:1px solid var(--line);
 }
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
-textarea{resize:vertical;min-height:100px;}
-.field-note{font-size:11px;color:var(--muted);line-height:1.8;}
-.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-@media(max-width:640px){.f-grid{grid-template-columns:1fr;}}
+.logo-block .logo{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.3em;font-weight:500;color:var(--ink);}
+.logo-block .sub{display:block;font-family:Cinzel,serif;font-size:8.5px;letter-spacing:.22em;color:var(--muted);margin-top:4px;text-transform:lowercase;}
+header nav a{font-size:12px;letter-spacing:.02em;color:var(--body);border-bottom:1px solid var(--line-strong);padding-bottom:2px;}
 
-.chip-group{display:flex;flex-wrap:wrap;gap:10px;}
-.chip{position:relative;}
-.chip input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer;margin:0;}
-.chip span{display:inline-block;border:1px solid var(--line-strong);padding:9px 18px;font-size:12.5px;color:var(--body);transition:background .2s,border-color .2s,color .2s;}
-.chip input:checked + span{background:var(--gold);border-color:var(--gold);color:#14100A;font-weight:700;}
-.radio-group{display:flex;gap:10px;flex-wrap:wrap;}
+.page-head{padding:9vh 0 6vh;text-align:center;}
+.eyebrow{font-family:Cinzel,serif;font-size:12px;letter-spacing:.26em;color:var(--muted);text-transform:lowercase;margin-bottom:18px;}
+h1.big{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(26px,4vw,40px);line-height:1.3;letter-spacing:.01em;color:var(--ink);margin-bottom:26px;}
+.lead{max-width:640px;margin:0 auto;font-family:"Shippori Mincho",serif;font-size:13.5px;line-height:2.4;color:var(--body);}
 
-.confirm-list{list-style:none;}
-.confirm-list li{font-size:13px;color:var(--body);line-height:2.1;padding-left:1.6em;position:relative;margin-bottom:10px;}
-.confirm-list li::before{content:"—";position:absolute;left:0;color:var(--gold-l);}
+.f-section{padding:6vh 0;border-top:1px solid var(--line);}
+.f-section h2{font-family:"Shippori Mincho",serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:.02em;}
+.f-section .f-sub{font-family:Cinzel,serif;font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:lowercase;margin-bottom:30px;display:block;}
+.f-group{margin-bottom:24px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.f-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+.f-group label{display:block;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--ink);margin-bottom:10px;letter-spacing:.02em;}
+.f-group label .req{color:var(--gold);font-size:10px;margin-left:6px;font-family:Cinzel,serif;}
+.f-group label .opt{color:var(--muted);font-size:10px;margin-left:6px;font-family:Cinzel,serif;}
+.f-group input[type=text],
+.f-group input[type=email],
+.f-group input[type=tel],
+.f-group input[type=number],
+.f-group select,
+.f-group textarea{
+  width:100%;padding:14px 14px;border:1px solid var(--line-strong);background:var(--bg);
+  font-family:"Shippori Mincho",serif;font-size:13px;color:var(--ink);
+}
+.f-group textarea{min-height:110px;resize:vertical;}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--gold);}
+.f-checks{display:flex;flex-wrap:wrap;gap:12px 22px;}
+.f-check{display:flex;align-items:center;gap:8px;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);}
+.f-note{font-size:11.5px;color:var(--muted);margin-top:10px;font-family:"Shippori Mincho",serif;line-height:1.9;}
+.f-price-box{background:var(--bg-blue);padding:28px 26px;margin:10px 0 0;font-family:"Shippori Mincho",serif;font-size:13px;}
+.f-price-box .amt{font-family:"Playfair Display",serif;font-size:26px;color:var(--ink);margin:6px 0 14px;}
+.f-price-box ul{list-style:none;color:var(--body);font-size:12px;line-height:2.1;}
+.f-price-box ul li{padding-left:16px;position:relative;}
+.f-price-box ul li::before{content:"—";position:absolute;left:0;color:var(--muted);}
+.confirm-list{list-style:none;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);line-height:2.2;}
+.confirm-list li{padding-left:18px;position:relative;margin-bottom:6px;}
+.confirm-list li::before{content:"・";position:absolute;left:0;color:var(--muted);}
 
-.price-box{background:var(--panel);border:1px solid var(--gold);padding:26px 28px;}
-.price-box .row{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
-.price-box .row:last-child{border-bottom:none;}
-.price-box .row b{color:var(--ink);font-weight:500;}
-.price-box .amount{font-family:"Playfair Display",serif;font-size:18px;color:var(--gold-l);white-space:nowrap;}
-.price-box .content-val{color:var(--muted);text-align:right;font-size:12px;max-width:340px;}
-.price-exception{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.9;padding-left:1.3em;text-indent:-1.3em;}
+.btn-fill{
+  display:inline-block;background:var(--ink);border:1px solid var(--ink);color:#fff;
+  padding:18px 0;width:100%;text-align:center;font-family:"Shippori Mincho",serif;font-size:14px;letter-spacing:.06em;
+  cursor:pointer;transition:background .4s,border-color .4s;
+}
+.btn-fill:hover{background:var(--gold);border-color:var(--gold);}
 
-.cancel-box{background:var(--panel);border:1px solid var(--line-strong);padding:24px 26px;}
-.cancel-box p{font-size:12.5px;color:var(--body);line-height:2;margin-bottom:10px;}
-.cancel-box a{color:var(--gold-l);border-bottom:1px solid rgba(233,212,143,.4);}
-.check-row{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);cursor:pointer;}
-.check-row input{margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--gold);cursor:pointer;}
-.check-row span{font-size:12.5px;color:var(--ink);}
+.submit-block{padding:6vh 0 12vh;}
+.submit-note{text-align:center;margin-top:20px;font-family:"Shippori Mincho",serif;font-size:12px;color:var(--muted);}
 
-.submit-zone{text-align:center;padding-top:56px;}
-.btn-submit{display:inline-block;background:var(--gold);color:#14100A;border:none;padding:19px 60px;font-family:Cinzel,serif;font-size:13px;letter-spacing:.16em;text-transform:lowercase;cursor:pointer;transition:opacity .3s,transform .3s;}
-.btn-submit:disabled{opacity:.35;cursor:not-allowed;}
-.btn-submit:not(:disabled):hover{transform:translateY(-2px);}
-.submit-note{margin-top:20px;font-size:11.5px;color:var(--muted);}
-.err-msg{margin-top:14px;font-size:12px;color:var(--err);display:none;}
-.err-msg.show{display:block;}
-
-.thanks{display:none;text-align:center;padding:100px 0;}
-.thanks.show{display:block;}
-.thanks h2{font-family:"Shippori Mincho",serif;font-size:24px;color:var(--ink);margin-bottom:20px;}
-.thanks p{font-family:"Shippori Mincho",serif;font-size:13.5px;color:var(--body);line-height:2.3;max-width:460px;margin:0 auto;}
-
-footer{border-top:1px solid var(--line);padding:40px 6vw;text-align:center;font-size:11px;color:var(--muted);}
-footer a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;}
+footer{border-top:1px solid var(--line);padding:40px 6vw;text-align:center;font-family:"Shippori Mincho",serif;font-size:11px;color:var(--muted);}
+@media(max-width:640px){.f-row,.f-row3{grid-template-columns:1fr;}}
 </style>
+</head>
+<body>
 
 <header>
-  <a class="logo" href="index.html">TWO ISLANDS</a>
-  <a class="back-link" href="index.html">← top</a>
+  <a class="logo-block" href="index.html">
+    <span class="logo">TWO ISLANDS</span>
+    <span class="sub">Serendib Journey</span>
+  </a>
+  <nav><a href="index.html">← top</a></nav>
 </header>
 
-<div class="wrap">
-  <div class="intro">
-    <p class="eyebrow">astrology reading</p>
-    <h1>あなたに宿る神話を知る、<br>最初の一歩。</h1>
-    <p>この旅は、宝石を選ぶことから始まりません。まずは、生まれ持った星の配置を読み解き、あなたと響き合う神話、そして宝石との出会いをご案内します。</p>
-    <p class="privacy-note">ご入力いただいた情報は、占星術鑑定および鑑定レポート作成のためにのみ使用いたします。</p>
+<div class="page-head">
+  <p class="eyebrow">astrology reading</p>
+  <h1 class="big">あなたに宿る神話を知る、<br>最初の一歩。</h1>
+  <p class="lead">この旅は、宝石を選ぶことから始まりません。まずは、生まれ持った星の配置を読み解き、あなたと響き合う神話、そして宝石との出会いをご案内します。</p>
+  <p class="lead" style="margin-top:22px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;">ご入力いただいた情報は、占星術鑑定および鑑定レポート作成のためにのみ使用いたします。</p>
+</div>
+
+<form class="wrap" id="readingForm" onsubmit="event.preventDefault();">
+
+  <div class="f-section">
+    <h2>お客様情報</h2>
+    <span class="f-sub">customer information</span>
+    <div class="f-row">
+      <div class="f-group"><label>姓 <span class="req">必須</span></label><input type="text" required></div>
+      <div class="f-group"><label>名 <span class="req">必須</span></label><input type="text" required></div>
+    </div>
+    <div class="f-row">
+      <div class="f-group"><label>フリガナ・セイ <span class="req">必須</span></label><input type="text" required></div>
+      <div class="f-group"><label>フリガナ・メイ <span class="req">必須</span></label><input type="text" required></div>
+    </div>
+    <div class="f-row">
+      <div class="f-group"><label>メールアドレス <span class="req">必須</span></label><input type="email" required></div>
+      <div class="f-group"><label>電話番号 <span class="req">必須</span></label><input type="tel" required></div>
+    </div>
   </div>
 
-  <form id="readingForm">
-    <div class="f-section">
-      <p class="f-eyebrow">01</p>
-      <h2 class="f-title">お客様情報</h2>
-      <div class="f-grid">
-        <div class="field"><label>お名前（姓） <span class="tag req">必須</span></label><input type="text" name="lastName" required></div>
-        <div class="field"><label>お名前（名） <span class="tag req">必須</span></label><input type="text" name="firstName" required></div>
-        <div class="field"><label>フリガナ（セイ） <span class="tag opt">任意</span></label><input type="text" name="lastNameKana"></div>
-        <div class="field"><label>フリガナ（メイ） <span class="tag opt">任意</span></label><input type="text" name="firstNameKana"></div>
-        <div class="field span2"><label>メールアドレス <span class="tag req">必須</span></label><input type="email" name="email" required>
-          <p class="field-note">※鑑定結果・日程調整・決済のご案内をこちらへお送りします。</p>
-        </div>
-        <div class="field span2"><label>電話番号 <span class="tag opt">任意</span></label><input type="tel" name="tel"></div>
+  <div class="f-section">
+    <h2>鑑定される方の情報</h2>
+    <span class="f-sub">birth information</span>
+    <div class="f-group">
+      <label>生年月日 <span class="req">必須</span></label>
+      <div class="f-row3">
+        <input type="number" placeholder="年" required>
+        <input type="number" placeholder="月" required>
+        <input type="number" placeholder="日" required>
       </div>
     </div>
-
-    <div class="f-section">
-      <p class="f-eyebrow">02</p>
-      <h2 class="f-title">鑑定される方の情報</h2>
-      <div class="f-grid full">
-        <div class="field"><label>生年月日 <span class="tag req">必須</span></label>
-          <div class="row3">
-            <select name="birthYear" required><option value="">年</option><script>document.write(Array.from({length:100},(_,i)=>{const y=2026-i;return `<option value="${y}">${y}</option>`}).join(''))</script></select>
-            <select name="birthMonth" required><option value="">月</option><script>document.write(Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join(''))</script></select>
-            <select name="birthDay" required><option value="">日</option><script>document.write(Array.from({length:31},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join(''))</script></select>
-          </div>
-        </div>
-        <div class="field"><label>生まれた時間 <span class="tag req">必須</span></label>
-          <div class="row3">
-            <select name="birthHour" id="birthHour"><option value="">時</option><script>document.write(Array.from({length:24},(_,i)=>`<option value="${i}">${i}</option>`).join(''))</script></select>
-            <select name="birthMinute" id="birthMinute"><option value="">分</option><script>document.write(Array.from({length:60},(_,i)=>`<option value="${i}">${i}</option>`).join(''))</script></select>
-            <label class="chip" style="align-self:center;"><input type="checkbox" id="timeUnknown"><span>不明</span></label>
-          </div>
-          <p class="field-note">※母子手帳などをご確認ください。ご不明な場合は「不明」を選択してください。</p>
-        </div>
-        <div class="field"><label>生まれた場所 <span class="tag req">必須</span></label>
-          <div class="row2">
-            <input type="text" name="birthPref" placeholder="都道府県" required>
-            <input type="text" name="birthCity" placeholder="市区町村" required>
-          </div>
-          <p class="field-note">※海外の場合は国名・都市名をご入力ください。</p>
-        </div>
-        <div class="field"><label>性別 <span class="tag req">必須</span></label>
-          <div class="row3">
-            <label class="chip"><input type="radio" name="gender" value="female" required><span>女性</span></label>
-            <label class="chip"><input type="radio" name="gender" value="male" required><span>男性</span></label>
-            <label class="chip"><input type="radio" name="gender" value="other" required><span>回答しない</span></label>
-          </div>
-        </div>
+    <div class="f-group">
+      <label>生まれた時間 <span class="req">必須</span></label>
+      <div class="f-row">
+        <input type="number" placeholder="時">
+        <input type="number" placeholder="分">
+      </div>
+      <div class="f-check" style="margin-top:12px;"><input type="checkbox" id="timeUnknown"><label for="timeUnknown" style="margin:0;">生まれた時間が不明の場合はこちら</label></div>
+      <p class="f-note">※母子手帳などをご確認ください。ご不明な場合は「不明」を選択してください。</p>
+    </div>
+    <div class="f-group">
+      <label>生まれた場所 <span class="req">必須</span></label>
+      <input type="text" placeholder="例：京都府京都市" required>
+      <p class="f-note">※海外の場合は国名・都市名をご入力ください。</p>
+    </div>
+    <div class="f-group">
+      <label>性別 <span class="req">必須</span></label>
+      <div class="f-checks">
+        <span class="f-check"><input type="radio" name="gender" required>女性</span>
+        <span class="f-check"><input type="radio" name="gender">男性</span>
+        <span class="f-check"><input type="radio" name="gender">回答しない</span>
       </div>
     </div>
+  </div>
 
-    <div class="f-section">
-      <p class="f-eyebrow">03</p>
-      <h2 class="f-title">ご希望内容</h2>
-      <div class="field span2" style="margin-bottom:30px;">
-        <label>今回知りたいテーマ <span class="tag opt">複数選択可</span></label>
-        <div class="chip-group">
-          <label class="chip"><input type="checkbox" name="theme" value="stone"><span>自分に必要な宝石を知りたい</span></label>
-          <label class="chip"><input type="checkbox" name="theme" value="myth"><span>神話とのつながりを知りたい</span></label>
-          <label class="chip"><input type="checkbox" name="theme" value="partner"><span>パートナーとの相性</span></label>
-          <label class="chip"><input type="checkbox" name="theme" value="marriage"><span>マリッジリングについて</span></label>
-          <label class="chip"><input type="checkbox" name="theme" value="legacy"><span>家族・継承について</span></label>
-          <label class="chip"><input type="checkbox" name="theme" value="other"><span>その他</span></label>
-        </div>
-      </div>
-      <div class="field span2" style="margin-bottom:30px;">
-        <label>自由記入欄 <span class="tag opt">任意</span></label>
-        <textarea name="freeText" placeholder="ご要望やご質問がございましたらご記入ください"></textarea>
-      </div>
-      <div class="field span2">
-        <label>ご希望の鑑定方法 <span class="tag req">必須</span></label>
-        <div class="radio-group">
-          <label class="chip"><input type="radio" name="method" value="online" checked><span>オンライン</span></label>
-        </div>
+  <div class="f-section">
+    <h2>ご希望内容</h2>
+    <span class="f-sub">your interests</span>
+    <div class="f-group">
+      <label>テーマ（複数選択可）</label>
+      <div class="f-checks">
+        <span class="f-check"><input type="checkbox">自分に必要な宝石を知りたい</span>
+        <span class="f-check"><input type="checkbox">神話とのつながりを知りたい</span>
+        <span class="f-check"><input type="checkbox">パートナーとの相性</span>
+        <span class="f-check"><input type="checkbox">マリッジリングについて</span>
+        <span class="f-check"><input type="checkbox">家族・継承について</span>
+        <span class="f-check"><input type="checkbox">その他</span>
       </div>
     </div>
+    <div class="f-group"><label>自由記入欄 <span class="opt">任意</span></label><textarea></textarea></div>
+    <div class="f-group">
+      <label>鑑定方法 <span class="req">必須</span></label>
+      <select required>
+        <option value="">選択してください</option>
+        <option>オンライン鑑定</option>
+      </select>
+    </div>
+  </div>
 
-    <div class="f-section">
-      <p class="f-eyebrow">04</p>
-      <h2 class="f-title">ご確認事項</h2>
-      <ul class="confirm-list">
-        <li>ご入力いただいた情報をもとに占星術鑑定を行います。</li>
-        <li>鑑定後の内容に応じて、採掘体験やジュエリープランをご案内いたします。</li>
-        <li>個人情報は鑑定目的以外では使用いたしません。</li>
+  <div class="f-section">
+    <h2>ご確認事項</h2>
+    <span class="f-sub">confirmation</span>
+    <ul class="confirm-list">
+      <li>入力情報をもとに鑑定を行います。</li>
+      <li>鑑定後、採掘体験・プランをご案内いたします。</li>
+      <li>個人情報は鑑定目的以外で使用いたしません。</li>
+    </ul>
+  </div>
+
+  <div class="f-section">
+    <h2>鑑定料金</h2>
+    <span class="f-sub">fee</span>
+    <div class="f-price-box">
+      <div>占星術鑑定</div>
+      <div class="amt display">30,000円（税込）</div>
+      <ul>
+        <li>占星術鑑定・神話診断</li>
+        <li>宝石のご提案</li>
+        <li>オンライン鑑定 約90分</li>
+        <li>採掘体験プランのご案内</li>
       </ul>
     </div>
-
-    <div class="f-section">
-      <p class="f-eyebrow">05</p>
-      <h2 class="f-title">鑑定料金</h2>
-      <div class="price-box">
-        <div class="row"><span>占星術鑑定</span><span class="amount">30,000円（税込）</span></div>
-        <div class="row"><span>鑑定内容</span><span class="content-val">占星術鑑定／神話診断／あなたに必要な宝石のご提案／オンライン鑑定（約90分）／採掘体験・ジュエリープランのご案内</span></div>
-      </div>
-      <p class="price-exception">※本サービスの他ページでは料金を表示しておりませんが、占星術鑑定のみ特定商取引法に基づき料金を表示しています。</p>
-    </div>
-
-    <div class="f-section">
-      <p class="f-eyebrow">06</p>
-      <h2 class="f-title">キャンセルについて</h2>
-      <div class="cancel-box">
-        <p>お申し込み後のキャンセル・返金につきましては、<a href="cancellation.html">キャンセルポリシー</a>をご確認のうえお申し込みください。</p>
-        <label class="check-row">
-          <input type="checkbox" id="cancelAgree" required>
-          <span>キャンセルポリシーの内容を確認し、同意します。<span class="tag req" style="margin-left:6px;">必須</span></span>
-        </label>
-      </div>
-    </div>
-
-    <div class="submit-zone">
-      <button type="submit" class="btn-submit" id="submitBtn" disabled>鑑定を申し込む</button>
-      <p class="err-msg" id="errMsg">必須項目とキャンセルポリシーへの同意をご確認ください。</p>
-      <p class="submit-note">送信後、担当者よりご確認のメールをお送りいたします。</p>
-    </div>
-  </form>
-
-  <div class="thanks" id="thanksPanel">
-    <p class="eyebrow">thank you</p>
-    <h2>お申し込みありがとうございます。</h2>
-    <p>ご入力いただいたメールアドレスへ、鑑定日程の調整とお支払いのご案内をお送りいたします。今しばらくお待ちください。</p>
+    <p class="f-note">※本サービスの他ページでは料金を表示しておりませんが、占星術鑑定のみ特定商取引法に基づき料金を表示しています。</p>
   </div>
+
+  <div class="f-section">
+    <h2>キャンセルについて</h2>
+    <span class="f-sub">cancellation</span>
+    <p class="f-note">お申し込み後のキャンセル・返金につきましては、<a href="cancellation.html" style="color:var(--ink);border-bottom:1px solid var(--line-strong);">キャンセルポリシー</a>をご確認のうえお申し込みください。</p>
+    <div class="f-check" style="margin-top:14px;"><input type="checkbox" id="agreeCancel" required><label for="agreeCancel" style="margin:0;">キャンセルポリシーの内容を確認し、同意します。 <span class="req">必須</span></label></div>
+  </div>
+
+  <div class="submit-block" id="formZone">
+    <button type="submit" class="btn-fill">鑑定を申し込む</button>
+    <p class="submit-note">必須項目とキャンセルポリシーへの同意をご確認ください。<br>送信後、担当者よりご確認のメールをお送りいたします。</p>
+  </div>
+
+</form>
+
+<div class="wrap" id="thanksZone" style="display:none;padding:10vh 0;text-align:center;">
+  <p class="eyebrow">thank you</p>
+  <h2 style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(22px,3.4vw,32px);color:var(--ink);margin-bottom:24px;">お申し込みありがとうございます。</h2>
+  <p class="lead">ご入力いただいたメールアドレスへ、鑑定日程の調整とお支払いのご案内をお送りいたします。今しばらくお待ちください。</p>
 </div>
 
 <footer>
-  <a href="privacy.html">プライバシーポリシー</a> ／ <a href="tokushoho.html">特定商取引法に基づく表記</a> ／ <a href="cancellation.html">キャンセルポリシー</a>
+  <p style="margin-bottom:10px;"><a href="#" style="color:var(--muted);">プライバシーポリシー</a> ／ <a href="tokushoho.html" style="color:var(--muted);">特定商取引法に基づく表記</a> ／ <a href="cancellation.html" style="color:var(--muted);">キャンセルポリシー</a></p>
+  © TWO ISLANDS
 </footer>
-
 <script>
-(function(){
-  var timeUnknown = document.getElementById('timeUnknown');
-  var hourSel = document.getElementById('birthHour');
-  var minSel = document.getElementById('birthMinute');
-  timeUnknown.addEventListener('change', function(){
-    hourSel.disabled = timeUnknown.checked;
-    minSel.disabled = timeUnknown.checked;
-    hourSel.required = !timeUnknown.checked;
-    minSel.required = !timeUnknown.checked;
-  });
-
-  var cancelAgree = document.getElementById('cancelAgree');
-  var submitBtn = document.getElementById('submitBtn');
-  cancelAgree.addEventListener('change', function(){
-    submitBtn.disabled = !cancelAgree.checked;
-  });
-
-  var form = document.getElementById('readingForm');
-  var errMsg = document.getElementById('errMsg');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!form.checkValidity() || !cancelAgree.checked){
-      errMsg.classList.add('show');
-      form.reportValidity();
-      return;
-    }
-    errMsg.classList.remove('show');
-    form.style.display = 'none';
-    document.getElementById('thanksPanel').classList.add('show');
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-})();
+document.getElementById('readingForm').addEventListener('submit', function(){
+  document.getElementById('readingForm').style.display='none';
+  document.getElementById('thanksZone').style.display='block';
+});
 </script>
+
+</body>
+</html>
