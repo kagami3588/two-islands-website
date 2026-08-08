@@ -112,12 +112,12 @@ footer a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;
       <div class="f-grid">
         <div class="field"><label>お名前（姓） <span class="tag req">必須</span></label><input type="text" name="lastName" required></div>
         <div class="field"><label>お名前（名） <span class="tag req">必須</span></label><input type="text" name="firstName" required></div>
-        <div class="field"><label>フリガナ（セイ） <span class="tag opt">任意</span></label><input type="text" name="lastNameKana"></div>
-        <div class="field"><label>フリガナ（メイ） <span class="tag opt">任意</span></label><input type="text" name="firstNameKana"></div>
+        <div class="field"><label>フリガナ（セイ） <span class="tag req">必須</span></label><input type="text" name="lastNameKana" required></div>
+        <div class="field"><label>フリガナ（メイ） <span class="tag req">必須</span></label><input type="text" name="firstNameKana" required></div>
         <div class="field span2"><label>メールアドレス <span class="tag req">必須</span></label><input type="email" name="email" required>
           <p class="field-note">※鑑定結果・日程調整・決済のご案内をこちらへお送りします。</p>
         </div>
-        <div class="field span2"><label>電話番号 <span class="tag opt">任意</span></label><input type="tel" name="tel"></div>
+        <div class="field span2"><label>電話番号 <span class="tag req">必須</span></label><input type="tel" name="tel" required></div>
       </div>
     </div>
 
@@ -247,11 +247,15 @@ footer a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;
 
   var cancelAgree = document.getElementById('cancelAgree');
   var submitBtn = document.getElementById('submitBtn');
-  cancelAgree.addEventListener('change', function(){
-    submitBtn.disabled = !cancelAgree.checked;
-  });
-
   var form = document.getElementById('readingForm');
+
+  function updateSubmitState(){
+    submitBtn.disabled = !(form.checkValidity() && cancelAgree.checked);
+  }
+  updateSubmitState();
+  form.addEventListener('input', updateSubmitState);
+  form.addEventListener('change', updateSubmitState);
+
   var errMsg = document.getElementById('errMsg');
   form.addEventListener('submit', function(e){
     e.preventDefault();
