@@ -36,9 +36,11 @@ header.scrolled{padding:16px 6vw;background:rgba(10,8,1,.88);backdrop-filter:blu
 .hero-inner{position:relative;z-index:3;max-width:720px;}
 .hero-kanji{font-size:clamp(12px,1.5vw,15px);color:var(--muted);margin-bottom:44px;font-family:"Shippori Mincho",serif;opacity:0;animation:fadeIn 1.6s ease .3s forwards;}
 .hero h1{color:var(--ink);font-family:"Shippori Mincho",serif;font-weight:500;font-size:clamp(24px,3.8vw,42px);line-height:2;margin-bottom:34px;text-wrap:balance;opacity:0;animation:fadeIn 1.6s ease .6s forwards;}
+.hero-name{color:var(--ink);font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(40px,7vw,80px);letter-spacing:.04em;margin-bottom:20px;opacity:0;animation:fadeIn 1.6s ease .6s forwards;}
+.hero-subtitle{color:var(--body);font-family:"Shippori Mincho",serif;font-size:clamp(14px,1.8vw,17px);letter-spacing:.04em;margin-bottom:34px;opacity:0;animation:fadeIn 1.6s ease .75s forwards;}
 .hero-lead{color:var(--body);font-family:"Shippori Mincho",serif;font-size:13.5px;line-height:2.5;margin-bottom:44px;max-width:520px;margin-left:auto;margin-right:auto;opacity:0;animation:fadeIn 1.6s ease .9s forwards;}
 @keyframes fadeIn{to{opacity:1;}}
-@media(prefers-reduced-motion:reduce){.hero-kanji,.hero h1,.hero-lead{animation:none;opacity:1;}}
+@media(prefers-reduced-motion:reduce){.hero-kanji,.hero h1,.hero-name,.hero-subtitle,.hero-lead{animation:none;opacity:1;}}
 .btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeIn 1.6s ease 1.1s forwards;}
 .btn-line{display:inline-block;border:1px solid var(--line-strong);color:var(--ink);padding:17px 44px;font-family:Cinzel,serif;font-size:12px;letter-spacing:.05em;text-transform:lowercase;transition:background .4s,border-color .4s;}
 .btn-line:hover{background:rgba(217,215,212,.06);border-color:var(--ink);}
@@ -156,7 +158,8 @@ footer{border-top:1px solid var(--line);padding:50px 6vw 34px;}
   </div>
   <div class="hero-inner">
     <p class="hero-kanji">石 に 神 が 宿 る</p>
-    <h1>石には、<br>神様が宿っている。</h1>
+    <p class="hero-name">MYTH</p>
+    <p class="hero-subtitle">あなたのための物語</p>
     <p class="hero-lead">
       スリランカに古くから伝わる、ひとつの物語があります。<br>
       大地から生まれた石には、それぞれ神が宿っているという。<br>
