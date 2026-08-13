@@ -82,10 +82,14 @@ body.menu-open .menu-overlay .menu-cta{opacity:1;transform:none;}
 .menu-foot{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-family:Cinzel,serif;font-size:10px;letter-spacing:.16em;color:var(--muted);}
 @media(max-width:860px){nav.main-nav{display:none;}}
 
-/* hero: static image + Ken Burns (no autoplay video, per v3 lightweight spec) */
+/* hero: video (canvas-mirrored, same fix as index.html) with static-image fallback */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:8vh 6vw;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.25) brightness(.5);transform:scale(1.04);animation:driftBg 60s ease-in-out infinite alternate;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.25) brightness(.5);opacity:0;transition:opacity 2s ease;transform:scale(1.04);animation:driftBg 60s ease-in-out infinite alternate;}
+.hero-bg img.show{opacity:1;}
+.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;}
+.hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 2s ease;filter:brightness(.62);}
+.hero-bg-canvas.show{opacity:1;}
 @keyframes driftBg{from{transform:scale(1.04) translate(0,0);}to{transform:scale(1.12) translate(-1.5%,-1%);}}
 @media(prefers-reduced-motion:reduce){.hero-bg img{animation:none;}}
 .hero-bg .vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(10,8,1,.18) 20%, rgba(10,8,1,.68) 100%);}
@@ -279,6 +283,8 @@ body{padding-bottom:0;}
 <div class="hero" id="chapter01">
   <div class="hero-bg">
     <img src="images/hero-torii.jpg" alt="霧に包まれた鳥居と石段">
+    <video class="hero-bg-video" src="hero-video.mp4" muted autoplay loop playsinline></video>
+    <canvas class="hero-bg-canvas"></canvas>
     <div class="vignette"></div>
     <div class="tone"></div>
   </div>
@@ -743,6 +749,41 @@ body{padding-bottom:0;}
 
 <script>
 (function(){
+  var heroImg = document.querySelector('.hero-bg img');
+  var heroVideo = document.querySelector('.hero-bg video');
+  var heroCanvas = document.querySelector('.hero-bg-canvas');
+  var heroCanvasCtx = heroCanvas ? heroCanvas.getContext('2d') : null;
+
+  function sizeHeroCanvas(){
+    if(!heroCanvas) return;
+    var rect = heroCanvas.getBoundingClientRect();
+    var dpr = window.devicePixelRatio || 1;
+    heroCanvas.width = Math.round(rect.width * dpr);
+    heroCanvas.height = Math.round(rect.height * dpr);
+  }
+  function drawHeroFrame(){
+    if(heroVideo && heroCanvasCtx && heroVideo.videoWidth){
+      var cw = heroCanvas.width, ch = heroCanvas.height;
+      var vw = heroVideo.videoWidth, vh = heroVideo.videoHeight;
+      var scale = Math.max(cw / vw, ch / vh);
+      var dw = vw * scale, dh = vh * scale;
+      var dx = (cw - dw) / 2;
+      var dy = (ch - dh) / 2;
+      heroCanvasCtx.drawImage(heroVideo, dx, dy, dw, dh);
+    }
+    requestAnimationFrame(drawHeroFrame);
+  }
+  sizeHeroCanvas();
+  window.addEventListener('resize', sizeHeroCanvas);
+  requestAnimationFrame(drawHeroFrame);
+  if(heroVideo){ heroVideo.play().catch(function(){}); }
+  setTimeout(function(){
+    if(heroCanvas){ heroCanvas.classList.add('show'); } else if(heroImg){ heroImg.classList.add('show'); }
+  }, 300);
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches && heroImg){
+    heroImg.classList.add('show');
+  }
+
   var header = document.getElementById('siteHeader');
   window.addEventListener('scroll', function(){
     header.classList.toggle('scrolled', window.scrollY > 30);
