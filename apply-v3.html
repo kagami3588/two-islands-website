@@ -1,0 +1,185 @@
+<title>お申し込み｜TWO ISLANDS</title>
+<meta name="description" content="占星術鑑定のお申し込みフォームです。所要時間は約3分。鑑定のみで終了いただいても構いません。">
+<style>
+:root{
+  --bg:#0A0801; --bg-raised:#120F08; --ink:#F2F0EC; --body:#D9D7D4; --muted:#8C887F;
+  --line:rgba(217,215,212,.14); --line-strong:rgba(217,215,212,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--body);font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:640px;margin:0 auto;padding:0 6vw;}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Cinzel:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap");
+
+header{padding:26px 6vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);}
+.logo{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.3em;font-weight:500;color:var(--ink);}
+header a.back{font-family:Cinzel,serif;font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:lowercase;}
+
+main{padding:10vh 0 16vh;}
+.eyebrow{font-family:Cinzel,serif;font-size:12px;letter-spacing:.24em;color:var(--muted);text-transform:lowercase;text-align:center;margin-bottom:18px;}
+h1{font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(22px,3.2vw,28px);color:var(--ink);text-align:center;margin-bottom:44px;}
+
+.flow-steps{display:flex;justify-content:center;gap:0;margin-bottom:56px;max-width:520px;margin-left:auto;margin-right:auto;}
+.flow-steps div{flex:1;text-align:center;font-family:"Shippori Mincho",serif;font-size:12px;color:var(--muted);padding-bottom:14px;border-bottom:1px solid var(--line-strong);position:relative;}
+.flow-steps div .n{display:block;font-family:Cinzel,serif;font-size:10px;color:var(--muted);margin-bottom:6px;}
+.flow-note{text-align:center;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);line-height:2.2;margin-bottom:16px;}
+.flow-guarantee{text-align:center;font-family:"Shippori Mincho",serif;font-size:12px;color:var(--muted);margin-bottom:60px;}
+
+.progress{max-width:440px;margin:0 auto 40px;text-align:center;font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.1em;color:var(--muted);}
+.progress-bar{height:2px;background:var(--line);margin-top:10px;position:relative;}
+.progress-bar .fill{position:absolute;left:0;top:0;height:100%;background:#C9A227;width:0%;transition:width .3s ease;}
+
+form{max-width:440px;margin:0 auto;}
+.field{margin-bottom:26px;}
+.field label{display:block;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--ink);margin-bottom:10px;letter-spacing:.03em;}
+.field .note{display:block;font-family:"Shippori Mincho",serif;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.9;}
+.field input[type=text],.field input[type=email],.field input[type=date],.field textarea{width:100%;background:var(--bg-raised);border:1px solid var(--line-strong);color:var(--ink);padding:14px 16px;font-family:inherit;font-size:13.5px;}
+.field textarea{min-height:90px;resize:vertical;}
+.field .checkbox-row{display:flex;align-items:center;gap:10px;margin-top:10px;font-family:"Shippori Mincho",serif;font-size:12px;color:var(--body);}
+.field .checkbox-row input{width:16px;height:16px;}
+.field input:disabled{opacity:.35;}
+
+.pay-logos{display:flex;gap:14px;justify-content:center;margin:36px 0;font-family:Cinzel,serif;font-size:10px;letter-spacing:.08em;color:var(--muted);}
+.pay-logos span{border:1px solid var(--line-strong);padding:8px 14px;}
+
+.submit-row{text-align:center;margin-top:44px;}
+.btn-line{display:inline-block;background:#C9A227;border:1px solid #C9A227;color:#0A0801;padding:19px 54px;font-family:Cinzel,serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:lowercase;cursor:pointer;transition:background .4s,border-color .4s,transform .3s;}
+.btn-line:hover{background:#E9D48F;border-color:#E9D48F;transform:translateY(-2px);}
+.submit-note{margin-top:20px;font-family:"Shippori Mincho",serif;font-size:11.5px;color:var(--muted);line-height:2;}
+
+.exit-cta{max-width:440px;margin:60px auto 0;text-align:center;background:var(--bg-raised);border:1px solid var(--line);padding:30px 26px;display:none;}
+.exit-cta.show{display:block;}
+.exit-cta p{font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);margin-bottom:16px;}
+.exit-cta form{display:flex;gap:8px;}
+.exit-cta input[type=email]{flex:1;background:var(--bg);border:1px solid var(--line-strong);color:var(--ink);padding:12px 14px;font-family:inherit;font-size:12.5px;}
+.exit-cta button{background:none;border:1px solid var(--line-strong);color:var(--ink);padding:12px 18px;font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.1em;cursor:pointer;}
+
+footer{border-top:1px solid var(--line);padding:34px 6vw;text-align:center;font-family:"Shippori Mincho",serif;font-size:10.5px;color:var(--muted);}
+</style>
+
+<header>
+  <a class="logo" href="v3.html">TWO ISLANDS</a>
+  <a class="back" href="v3.html">&larr; back</a>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="eyebrow">apply</p>
+    <h1>占星術鑑定のお申し込み</h1>
+
+    <div class="flow-note">
+      お申し込みの流れ<br><br>
+      01　このフォームを送信（所要3分）<br>
+      02　お支払い（カード／銀行振込）<br>
+      03　鑑定結果レポートをメールでお届け（日数は確定次第ご案内します）
+    </div>
+    <p class="flow-guarantee">鑑定のみで終了いただいてかまいません。<br>このお申し込みで、採掘プランへの契約は発生しません。</p>
+
+    <div class="progress">
+      <span id="progressLabel">入力状況：0 / 6項目</span>
+      <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+    </div>
+
+    <form id="applyForm">
+      <div class="field">
+        <label for="f-name">お名前</label>
+        <input type="text" id="f-name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="f-email">メールアドレス</label>
+        <input type="email" id="f-email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="f-dob">生年月日</label>
+        <input type="date" id="f-dob" name="dob" required>
+      </div>
+      <div class="field">
+        <label for="f-tob">出生時刻</label>
+        <input type="text" id="f-tob" name="tob" placeholder="例：14:30">
+        <div class="checkbox-row">
+          <input type="checkbox" id="f-tob-unknown">
+          <label for="f-tob-unknown" style="margin:0;">わからない</label>
+        </div>
+        <span class="note">母子手帳に記載されていることが多い項目です。わからない場合もそのままお進みいただけます。</span>
+      </div>
+      <div class="field">
+        <label for="f-pob">出生地</label>
+        <input type="text" id="f-pob" name="pob" placeholder="都道府県＋市区町村まで" required>
+      </div>
+      <div class="field">
+        <label for="f-note">ご要望（任意）</label>
+        <textarea id="f-note" name="note"></textarea>
+      </div>
+
+      <div class="pay-logos">
+        <span>VISA / Mastercard</span>
+        <span>銀行振込</span>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn-line">送信する</button>
+        <p class="submit-note">送信後、決済ページへご案内します。占星術鑑定は30,000円（税込）です。</p>
+      </div>
+    </form>
+
+    <div class="exit-cta" id="exitCta">
+      <p>まだ迷っている方へ。まずは五つの石について、メールで受け取りませんか。</p>
+      <form onsubmit="return false;">
+        <input type="email" placeholder="メールアドレス">
+        <button type="submit">受け取る</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>© TWO ISLANDS　占星術鑑定・神話にまつわる記載は伝承文化に基づく提案であり、効果・ご利益を保証するものではありません。</footer>
+
+<script>
+(function(){
+  var fields = ['f-name','f-email','f-dob','f-tob','f-pob','f-note'];
+  var progressLabel = document.getElementById('progressLabel');
+  var progressFill = document.getElementById('progressFill');
+  var tobInput = document.getElementById('f-tob');
+  var tobUnknown = document.getElementById('f-tob-unknown');
+
+  tobUnknown.addEventListener('change', function(){
+    tobInput.disabled = tobUnknown.checked;
+    if(tobUnknown.checked) tobInput.value = '';
+    updateProgress();
+  });
+
+  function updateProgress(){
+    var filled = 0;
+    fields.forEach(function(id){
+      var el = document.getElementById(id);
+      if(id === 'f-tob' && tobUnknown.checked){ filled++; return; }
+      if(el.value.trim() !== '') filled++;
+    });
+    progressLabel.textContent = '入力状況：' + filled + ' / 6項目';
+    progressFill.style.width = (filled/6*100) + '%';
+  }
+  fields.forEach(function(id){
+    document.getElementById(id).addEventListener('input', updateProgress);
+  });
+
+  var form = document.getElementById('applyForm');
+  var exitCta = document.getElementById('exitCta');
+  var leaving = false;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    window.location.href = 'thanks-v3.html';
+  });
+  document.addEventListener('mouseout', function(e){
+    if(e.clientY < 0 && !leaving){
+      leaving = true;
+      exitCta.classList.add('show');
+    }
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  if(params.get('type') === 'consult'){
+    document.querySelector('h1').textContent = '無料オンライン相談のお申し込み';
+    document.querySelector('.submit-note').textContent = '送信後、日程調整のご案内をお送りします。相談は無料・オンライン30分です。';
+  }
+})();
+</script>
