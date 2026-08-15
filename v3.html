@@ -1,4 +1,4 @@
-<title>TWO ISLANDS｜星が示した石を、自分の手で掘る</title>
+<title>TWO ISLANDS｜買えない指輪を、掘りに行く。</title>
 <meta name="description" content="占星術が導いた五つの石。スリランカ・ノジリ鉱山で掘り出した一石を、ジュエリーに仕立てます。現地で掘る道と、日本で待つ道。まずは占星術鑑定から。">
 <style>
 :root{
@@ -21,9 +21,6 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-.jp{font-family:"Shippori Mincho",serif;}
-.display{font-family:"Playfair Display",serif;}
-.label{font-family:Cinzel,serif;}
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 .wrap{max-width:1100px;margin:0 auto;padding:0 6vw;}
@@ -37,12 +34,7 @@ header{
   transition:padding .4s,border-color .4s,background .4s;
   border-bottom:1px solid transparent;
 }
-header.scrolled{
-  padding:16px 6vw;
-  background:rgba(10,8,1,.88);
-  backdrop-filter:blur(8px);
-  border-bottom-color:var(--line);
-}
+header.scrolled{padding:16px 6vw;background:rgba(10,8,1,.88);backdrop-filter:blur(8px);border-bottom-color:var(--line);}
 .logo{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.3em;font-weight:500;color:var(--ink);}
 nav{display:flex;gap:30px;align-items:center;}
 nav a{font-size:12.5px;letter-spacing:.02em;color:var(--body);text-transform:lowercase;position:relative;}
@@ -67,7 +59,6 @@ body.menu-open .menu-overlay nav a{opacity:1;transform:none;}
 .menu-overlay nav a:nth-child(3){transition-delay:.16s;}
 .menu-overlay nav a:nth-child(4){transition-delay:.21s;}
 .menu-overlay nav a:nth-child(5){transition-delay:.26s;}
-.menu-overlay nav a:nth-child(6){transition-delay:.31s;}
 .menu-overlay nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--line-strong);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
 .menu-overlay nav a:hover::after{transform:scaleX(1);}
 .menu-overlay .menu-divider{width:40px;height:1px;background:var(--line-strong);margin:8px 0;opacity:0;transition:opacity .5s ease .2s;}
@@ -82,7 +73,12 @@ body.menu-open .menu-overlay .menu-cta{opacity:1;transform:none;}
 .menu-foot{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-family:Cinzel,serif;font-size:10px;letter-spacing:.16em;color:var(--muted);}
 @media(max-width:860px){nav.main-nav{display:none;}}
 
-/* hero: video (canvas-mirrored, same fix as index.html) with static-image fallback */
+#loader{position:fixed;inset:0;z-index:1000;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity 1.1s ease;}
+#loader.hide{opacity:0;pointer-events:none;}
+.loader-catch{font-family:"Shippori Mincho",serif;font-size:clamp(20px,3vw,30px);color:var(--ink);line-height:2;text-align:center;padding:0 8vw;opacity:0;transition:opacity 1.3s ease;letter-spacing:.04em;}
+.loader-catch.show{opacity:1;}
+
+/* hero: video (canvas-mirrored) */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:8vh 6vw;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.25) brightness(.5);opacity:0;transition:opacity 2s ease;transform:scale(1.04);animation:driftBg 60s ease-in-out infinite alternate;}
@@ -92,24 +88,33 @@ body.menu-open .menu-overlay .menu-cta{opacity:1;transform:none;}
 .hero-bg-canvas.show{opacity:1;}
 @keyframes driftBg{from{transform:scale(1.04) translate(0,0);}to{transform:scale(1.12) translate(-1.5%,-1%);}}
 @media(prefers-reduced-motion:reduce){.hero-bg img{animation:none;}}
-.hero-bg .vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(10,8,1,.18) 20%, rgba(10,8,1,.68) 100%);}
-.hero-bg .tone{position:absolute;inset:0;background:rgba(10,8,1,.28);}
-.hero-copy{position:relative;z-index:2;max-width:640px;}
-.hero-copy h1{font-family:"Shippori Mincho",serif;font-weight:500;color:var(--ink);font-size:clamp(26px,4.2vw,44px);line-height:1.85;text-wrap:balance;margin-bottom:30px;}
-.hero-sub{font-family:"Shippori Mincho",serif;font-size:clamp(13px,1.5vw,15px);color:var(--body);line-height:2.2;max-width:460px;margin:0 auto;}
-.hero-unlock{margin-top:38px;font-family:"Shippori Mincho",serif;font-size:13px;color:var(--muted);line-height:2.1;}
+.hero-bg .vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(10,8,1,.2) 15%, rgba(10,8,1,.72) 100%);}
+.hero-bg .tone{position:absolute;inset:0;background:rgba(10,8,1,.3);}
+.hero-copy{position:relative;z-index:2;max-width:680px;}
+.hero-copy h1{font-family:"Shippori Mincho",serif;font-weight:600;color:var(--ink);font-size:clamp(32px,5.6vw,58px);line-height:1.5;text-wrap:balance;margin-bottom:32px;letter-spacing:.01em;}
+.hero-sub{font-family:"Shippori Mincho",serif;font-size:clamp(13px,1.5vw,15px);color:var(--body);line-height:2.3;max-width:480px;margin:0 auto;}
 .hero-links{margin-top:44px;display:flex;flex-wrap:wrap;gap:18px;justify-content:center;}
 .hero-links a{font-family:Cinzel,serif;font-size:11px;letter-spacing:.14em;color:var(--ink);text-transform:lowercase;padding-bottom:3px;border-bottom:1px solid var(--line-strong);}
+.hero-scroll-cue{position:absolute;left:0;right:0;bottom:5vh;z-index:2;font-family:Cinzel,serif;font-size:9.5px;letter-spacing:.24em;color:var(--muted);text-transform:lowercase;}
 
 section{padding:15vh 0;}
+section.panel-raised{background:var(--bg-raised);}
+.chapter-tag{text-align:center;margin-bottom:20px;}
+.chapter-tag span{font-family:Cinzel,serif;font-size:11px;letter-spacing:.3em;color:var(--muted);text-transform:lowercase;}
+.chapter-tag .num{color:#C9A227;margin-right:10px;}
 .label-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:26px;}
 .label-row .ln{width:34px;height:1px;background:var(--line-strong);}
 .eyebrow{font-family:Cinzel,serif;font-size:13px;letter-spacing:.28em;color:var(--muted);text-transform:lowercase;}
 h2.big{text-align:center;font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(28px,4.6vw,52px);line-height:1.15;letter-spacing:.01em;color:var(--ink);margin-bottom:38px;text-wrap:balance;}
 .jp-body{text-align:center;color:var(--body);max-width:600px;margin:0 auto;font-family:"Shippori Mincho",serif;font-size:14px;line-height:2.5;letter-spacing:.02em;}
+
 .fade{opacity:0;transform:translateY(28px) scale(.98);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1);}
 .fade.show{opacity:1;transform:none;}
-@media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none;}}
+.fade-left{opacity:0;transform:translateX(-46px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.fade-left.show{opacity:1;transform:none;}
+.fade-right{opacity:0;transform:translateX(46px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.fade-right.show{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.fade,.fade-left,.fade-right{opacity:1;transform:none;transition:none;}}
 
 .center{text-align:center;}
 .btn-line{display:inline-block;background:#C9A227;border:1px solid #C9A227;color:#0A0801;padding:19px 54px;font-family:Cinzel,serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:lowercase;transition:background .4s,border-color .4s,transform .3s;}
@@ -118,33 +123,94 @@ h2.big{text-align:center;font-family:"Playfair Display",serif;font-weight:400;fo
 .btn-ghost:hover{border-color:var(--ink);background:var(--bg-raised);}
 .cta-pair{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:16px;}
 
-/* definition block */
-.def-block{max-width:520px;margin:0 auto;text-align:center;}
-.def-block p{font-family:"Shippori Mincho",serif;font-size:14.5px;line-height:2.4;color:var(--body);margin-bottom:20px;}
+/* split-row: alternating photo/text used across all four chapters */
+.split-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1000px;margin:0 auto;padding:64px 0;border-top:1px solid var(--line);}
+.split-row:first-of-type{border-top:none;}
+.split-row.reverse .split-photo{order:2;}
+.split-row.reverse .split-text{order:1;}
+.split-photo{aspect-ratio:4/5;overflow:hidden;background:var(--bg-raised);}
+.split-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.82);transform:scale(1.14);transition:transform 9s cubic-bezier(.16,1,.3,1);}
+.split-photo.zoom-out img{transform:scale(1);}
+.split-row.show .split-photo img{transform:scale(1);}
+.split-row.show .split-photo.zoom-out img{transform:scale(1.1);}
+.split-text .idx{font-family:"Playfair Display",serif;font-size:13px;color:var(--muted);margin-bottom:14px;display:block;}
+.split-text h4{font-family:"Shippori Mincho",serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:16px;letter-spacing:.02em;}
+.split-text p{font-family:"Shippori Mincho",serif;font-size:13px;color:var(--body);line-height:2.3;}
+@media(max-width:760px){
+  .split-row{grid-template-columns:1fr;gap:26px;padding:44px 0;}
+  .split-row.reverse .split-photo,.split-row.reverse .split-text{order:0;}
+}
+
+/* five stones definition */
+.def-block{max-width:560px;margin:44px auto 0;text-align:center;}
+.def-block p{font-family:"Shippori Mincho",serif;font-size:14px;line-height:2.4;color:var(--body);margin-bottom:16px;}
 .def-block p.strong{color:var(--ink);}
 .def-block p:last-child{margin-bottom:0;}
 
-/* five stones */
-.stone-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:640px;margin:44px auto 0;}
-.stone-row span{font-family:"Shippori Mincho",serif;font-size:14px;color:var(--ink);padding:14px 22px;border:1px solid var(--line-strong);}
+/* price band — full-bleed, distinct from step rows */
+.price-band{background:var(--bg-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:90px 6vw;text-align:center;margin-top:40px;}
+.price-band .plabel{font-family:Cinzel,serif;font-size:11px;letter-spacing:.24em;color:var(--muted);text-transform:lowercase;margin-bottom:30px;}
+.price-band .pmain{font-family:"Playfair Display",serif;font-size:clamp(30px,5vw,46px);color:var(--ink);margin-bottom:14px;}
+.price-band .psub{font-family:"Shippori Mincho",serif;font-size:13px;color:var(--muted);margin-bottom:46px;}
+.price-band .pnote{max-width:520px;margin:0 auto;font-family:"Shippori Mincho",serif;font-size:13px;color:var(--body);line-height:2.3;padding-top:36px;border-top:1px solid var(--line-strong);}
 
-/* origin / two islands */
-.story-chapter{max-width:640px;margin:100px auto 0;border-top:1px solid var(--line);padding-top:70px;}
+/* route split — large photo comparison, chapter 2 */
+.route-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);max-width:1000px;margin:56px auto 0;}
+.route-panel{background:var(--bg);position:relative;}
+.route-panel .rp-photo{aspect-ratio:3/4;overflow:hidden;}
+.route-panel .rp-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) brightness(.72);transform:scale(1.1);transition:transform 8s cubic-bezier(.16,1,.3,1);}
+.route-split.show .rp-photo img{transform:scale(1);}
+.route-panel .rp-body{padding:30px 28px;}
+.route-panel .rt-en{font-family:Cinzel,serif;font-size:10px;letter-spacing:.16em;color:var(--muted);text-transform:lowercase;margin-bottom:10px;}
+.route-panel h4{font-family:"Shippori Mincho",serif;font-size:17px;color:var(--ink);margin-bottom:14px;font-weight:600;}
+.route-panel ul{list-style:none;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);line-height:2.2;}
+.route-panel ul li{padding-left:14px;position:relative;}
+.route-panel ul li::before{content:"—";position:absolute;left:0;color:var(--muted);}
+@media(max-width:760px){.route-split{grid-template-columns:1fr;}}
+
+/* treasure box highlight card */
+.treasure-card{max-width:760px;margin:64px auto 0;display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;background:var(--bg-raised);border:1px solid var(--line);padding:30px;}
+.treasure-card .t-photo{aspect-ratio:1/1;overflow:hidden;}
+.treasure-card .t-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.85);}
+.treasure-card .t-en{font-family:Cinzel,serif;font-size:10px;letter-spacing:.14em;color:#C9A227;text-transform:lowercase;margin-bottom:10px;}
+.treasure-card h4{font-family:"Shippori Mincho",serif;font-size:16px;color:var(--ink);margin-bottom:10px;}
+.treasure-card p{font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);line-height:2.1;}
+@media(max-width:640px){.treasure-card{grid-template-columns:1fr;}}
+
+/* receive strip */
+.receive-strip{display:flex;align-items:center;gap:40px;max-width:900px;margin:64px auto 0;}
+.receive-strip .r-photo{flex:0 0 40%;aspect-ratio:4/3;overflow:hidden;}
+.receive-strip .r-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.8);}
+.receive-strip p{font-family:"Shippori Mincho",serif;font-size:14px;color:var(--body);line-height:2.3;}
+@media(max-width:640px){.receive-strip{flex-direction:column;}.receive-strip .r-photo{flex:none;width:100%;}}
+
+/* chapter 3 — why: asymmetric photo + trust pillars */
+.why-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start;max-width:1080px;margin:60px auto 0;}
+.why-photo{aspect-ratio:3/4;overflow:hidden;position:sticky;top:120px;}
+.why-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.68);transform:scale(1.1);transition:transform 9s cubic-bezier(.16,1,.3,1);}
+.why-layout.show .why-photo img{transform:scale(1);}
+.trust-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);}
+.trust-item{background:var(--bg);padding:28px 26px;}
+.trust-item .t-en{font-family:Cinzel,serif;font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:lowercase;margin-bottom:10px;}
+.trust-item h5{font-family:"Shippori Mincho",serif;font-size:15px;color:var(--ink);margin-bottom:10px;font-weight:600;}
+.trust-item p{font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);line-height:2.15;}
+@media(max-width:820px){.why-layout{grid-template-columns:1fr;}.why-photo{position:static;aspect-ratio:16/9;}}
+
+/* chapter 4 — worldview: full-bleed alternating story chapters */
+.story-chapter{max-width:680px;margin:100px auto 0;}
 .story-chapter .en-tag{font-family:Cinzel,serif;font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:lowercase;margin-bottom:18px;text-align:center;}
-.story-chapter h3{font-family:"Shippori Mincho",serif;font-weight:600;font-size:19px;color:var(--ink);text-align:center;margin-bottom:40px;letter-spacing:.02em;}
-.story-chapter .story-photo{aspect-ratio:16/9;overflow:hidden;margin-bottom:40px;}
-.story-chapter .story-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) brightness(.78);transform:scale(1.08);transition:transform 10s cubic-bezier(.16,1,.3,1);}
-.story-chapter.show .story-photo img{transform:scale(1);}
+.story-chapter h3{font-family:"Shippori Mincho",serif;font-weight:600;font-size:20px;color:var(--ink);text-align:center;margin-bottom:36px;letter-spacing:.02em;}
 .story-chapter p{font-family:"Shippori Mincho",serif;font-size:13.5px;line-height:2.4;color:var(--body);margin-bottom:20px;}
 .story-chapter p:last-child{margin-bottom:0;}
-.story-chapter p b{color:var(--ink);font-weight:600;}
 .story-chapter .story-quote{margin:44px auto;padding:44px 36px;border-left:2px solid #C9A227;background:var(--bg-raised);text-align:center;}
 .story-chapter .story-quote p{color:var(--ink);font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(20px,3vw,28px);line-height:1.7;margin:0;letter-spacing:.01em;text-wrap:balance;}
 .story-chapter .origin-quote{text-align:center;font-family:"Shippori Mincho",serif;font-size:17px;color:var(--ink);margin-bottom:32px;line-height:2;}
 .story-chapter p.sig{text-align:center;font-family:Cinzel,serif;font-size:11px;letter-spacing:.08em;color:var(--muted);margin-top:32px;margin-bottom:0;}
+.myth-split{margin-top:40px;}
+.myth-split .split-photo{aspect-ratio:16/9;}
 
-/* email capture CTA (low temp) */
-.cta-email{max-width:460px;margin:48px auto 0;text-align:center;background:var(--bg-raised);border:1px solid var(--line);padding:38px 32px;}
+/* email capture */
+.cta-email{max-width:460px;margin:56px auto 0;text-align:center;background:var(--bg-raised);border:1px solid var(--line);padding:38px 32px;}
 .cta-email h4{font-family:"Shippori Mincho",serif;font-size:15px;color:var(--ink);margin-bottom:14px;}
 .cta-email p{font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--muted);line-height:2;margin-bottom:22px;}
 .cta-email form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
@@ -164,54 +230,6 @@ h2.big{text-align:center;font-family:"Playfair Display",serif;font-weight:400;fo
 .gods-more{display:block;margin:36px auto 0;background:none;border:1px solid var(--line-strong);color:var(--ink);padding:14px 34px;font-family:Cinzel,serif;font-size:11px;letter-spacing:.14em;text-transform:lowercase;cursor:pointer;}
 @media(max-width:760px){.gods-grid{grid-template-columns:1fr;}}
 .pantheon-note{max-width:560px;margin:44px auto 0;text-align:center;font-size:11.5px;color:var(--muted);line-height:2.1;font-family:"Shippori Mincho",serif;}
-
-/* journey steps */
-.craft-list{max-width:640px;margin:56px auto 0;}
-.craft-row{display:flex;flex-direction:column;gap:14px;padding:34px 0;border-top:1px solid var(--line);}
-.craft-row:last-child{border-bottom:1px solid var(--line);}
-.craft-row .craft-body{display:flex;gap:28px;align-items:baseline;}
-.craft-idx{font-family:"Playfair Display",serif;font-size:14px;color:var(--muted);flex-shrink:0;width:26px;}
-.craft-row h4{font-family:"Shippori Mincho",serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:.03em;}
-.craft-row p{font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--muted);line-height:2.2;}
-.craft-photo-sm{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg-raised);margin-bottom:26px;}
-.craft-photo-sm img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) brightness(.82);transform:scale(1.07);transition:filter .5s,transform 8s cubic-bezier(.16,1,.3,1);}
-.craft-row.show .craft-photo-sm img{transform:scale(1);}
-@media(max-width:640px){.craft-photo-sm{aspect-ratio:4/3;}}
-
-.step04{max-width:640px;margin:80px auto;text-align:center;}
-.step04 .en{font-family:Cinzel,serif;font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:lowercase;margin-bottom:18px;}
-.step04-photo{aspect-ratio:16/9;overflow:hidden;margin-bottom:36px;}
-.step04-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.8);transform:scale(1.08);transition:transform 9s cubic-bezier(.16,1,.3,1);}
-.step04.show .step04-photo img{transform:scale(1);}
-.step04 p{font-family:"Shippori Mincho",serif;font-size:14px;line-height:2.3;color:var(--body);margin-bottom:16px;}
-
-.route-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);max-width:900px;margin:56px auto 0;border:1px solid var(--line);}
-.route-card{background:var(--bg);padding:34px 30px;}
-.route-card .rc-photo{width:100%;aspect-ratio:16/9;overflow:hidden;margin-bottom:18px;}
-.route-card .rc-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.78);transform:scale(1.08);transition:transform 9s cubic-bezier(.16,1,.3,1);}
-.route-grid.show .rc-photo img{transform:scale(1);}
-.route-card .rt-en{font-family:Cinzel,serif;font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:lowercase;margin-bottom:12px;}
-.route-card h4{font-family:"Shippori Mincho",serif;font-size:16px;color:var(--ink);margin-bottom:16px;font-weight:600;}
-.route-card ul{list-style:none;font-family:"Shippori Mincho",serif;font-size:12.5px;color:var(--body);line-height:2.2;}
-.route-card ul li{padding-left:14px;position:relative;}
-.route-card ul li::before{content:"—";position:absolute;left:0;color:var(--muted);}
-@media(max-width:640px){.route-grid{grid-template-columns:1fr;}}
-
-/* price disclosure block */
-.honest-block{max-width:560px;margin:0 auto;}
-.honest-block p{font-family:"Shippori Mincho",serif;font-size:14px;line-height:2.4;color:var(--body);margin-bottom:18px;text-align:center;}
-.honest-block p:last-child{margin-bottom:0;}
-
-.price-table{max-width:640px;margin:56px auto 0;border:1px solid var(--line);}
-.price-row{display:flex;justify-content:space-between;padding:20px 26px;border-bottom:1px solid var(--line);font-family:"Shippori Mincho",serif;font-size:13.5px;color:var(--body);}
-.price-row:last-child{border-bottom:none;}
-.price-row.head{background:var(--bg-raised);font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.1em;color:var(--muted);text-transform:lowercase;}
-.price-row .amt{color:var(--ink);font-family:"Playfair Display",serif;letter-spacing:.02em;}
-.price-note{max-width:560px;margin:28px auto 0;text-align:center;font-family:"Shippori Mincho",serif;font-size:11.5px;color:var(--muted);line-height:2.1;}
-
-/* use cases */
-.usecase-list{max-width:560px;margin:56px auto 0;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);}
-.usecase-list div{background:var(--bg);padding:22px 26px;font-family:"Shippori Mincho",serif;font-size:13.5px;color:var(--ink);}
 
 /* faq */
 .faq-list{max-width:700px;margin:60px auto 0;}
@@ -237,21 +255,12 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
 .foot-col a:hover{color:var(--ink);}
 .foot-bottom{max-width:1100px;margin:36px auto 0;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:"Shippori Mincho",serif;color:var(--muted);font-size:10.5px;line-height:1.9;}
 
-/* v3 follow CTA bar */
 .follow-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;height:56px;background:rgba(10,8,1,.92);backdrop-filter:blur(6px);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:24px;transform:translateY(100%);transition:transform .4s ease;font-family:Cinzel,serif;}
 .follow-cta.show{transform:translateY(0);}
 .follow-cta a{font-size:11px;letter-spacing:.12em;color:var(--ink);text-transform:lowercase;padding:8px 20px;border:1px solid var(--line-strong);}
 .follow-cta a.primary{background:#C9A227;border-color:#C9A227;color:#0A0801;}
-body{padding-bottom:0;}
 
-@media(max-width:640px){section{padding:11vh 0;}.gods-grid{grid-template-columns:1fr;}}
-
-#loader{position:fixed;inset:0;z-index:1000;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity 1.1s ease;}
-#loader.hide{opacity:0;pointer-events:none;}
-.loader-catch{font-family:"Shippori Mincho",serif;font-size:clamp(20px,3vw,30px);color:var(--ink);line-height:2;text-align:center;padding:0 8vw;opacity:0;transition:opacity 1.3s ease;letter-spacing:.04em;}
-.loader-catch.show{opacity:1;}
-
-.hero-top-line{position:relative;z-index:2;font-family:"Shippori Mincho",serif;font-size:clamp(12.5px,1.5vw,14.5px);color:var(--body);line-height:2.1;max-width:460px;margin:0 auto 34px;}
+@media(max-width:640px){section{padding:11vh 0;}}
 </style>
 
 <div id="loader">
@@ -261,10 +270,10 @@ body{padding-bottom:0;}
 <header id="siteHeader" class="hero-chrome" style="opacity:1;">
   <a class="logo" href="index.html">TWO ISLANDS</a>
   <nav class="main-nav">
-    <a href="#chapter01">why</a>
-    <a href="#chapter02">origin</a>
-    <a href="#chapter03">journey</a>
-    <a href="#chapter04">begin</a>
+    <a href="#chapter01">provide</a>
+    <a href="#chapter02">experience</a>
+    <a href="#chapter03">why</a>
+    <a href="#chapter04">world</a>
     <a class="cta-link" href="apply-v3.html">申し込む</a>
   </nav>
   <button type="button" class="nav-toggle" id="menuToggle" aria-label="menu">
@@ -276,10 +285,10 @@ body{padding-bottom:0;}
 <div class="menu-overlay" id="menuOverlay">
   <button type="button" class="menu-close" id="menuClose"><span class="x"></span>close</button>
   <nav>
-    <a href="#chapter01">why — なぜ、掘るのか</a>
-    <a href="#chapter02">origin — 二つの島の物語</a>
-    <a href="#chapter03">journey — 旅のすべて</a>
-    <a href="#chapter04">begin — はじめる</a>
+    <a href="#chapter01">01 — 提供するもの</a>
+    <a href="#chapter02">02 — 体験</a>
+    <a href="#chapter03">03 — なぜ提供できるのか</a>
+    <a href="#chapter04">04 — 世界観</a>
     <a href="index.html">既存サイトを見る</a>
   </nav>
   <div class="menu-divider"></div>
@@ -287,8 +296,8 @@ body{padding-bottom:0;}
   <p class="menu-foot">© TWO ISLANDS</p>
 </div>
 
-<!-- ===================== CHAPTER 01 — WHY ===================== -->
-<div class="hero" id="chapter01">
+<!-- ===================== HERO ===================== -->
+<div class="hero" id="top">
   <div class="hero-bg">
     <img src="images/hero-torii.jpg" alt="霧に包まれた鳥居と石段">
     <video class="hero-bg-video" src="hero-video.mp4" muted autoplay loop playsinline></video>
@@ -297,59 +306,237 @@ body{padding-bottom:0;}
     <div class="tone"></div>
   </div>
   <div class="hero-copy">
-    <p class="hero-top-line">欲しいものをなんでも手元で買えるこの時代に、<br>リングを通して、忘れられない物語を提供します。</p>
-    <h1>あなたの石は、<br>まだ土の中にある。</h1>
-    <p class="hero-sub">生まれた瞬間の星が、五つの石を示す。<br>そのうちの一つを、自分の手で掘り当てる。</p>
-    <p class="hero-unlock">まずは鑑定だけでも。<br>掘りに行くかどうかは、そのあとで決められます。</p>
+    <h1>買えない指輪を、<br>掘りに行く。</h1>
+    <p class="hero-sub">あなたの石は、まだ土の中にある。<br>生まれた瞬間の星が告げる「五つの石」。<br>そのうちの一石を、自らの手で掘り当てる特別な旅へ。</p>
     <div class="hero-links">
-      <a href="#chapter03">鑑定について知る</a>
-      <a href="#chapter02">二つの島の物語を読む</a>
+      <a href="#chapter01">提供するものを見る</a>
+      <a href="#chapter04">世界観を読む</a>
     </div>
   </div>
+  <p class="hero-scroll-cue">scroll</p>
 </div>
 
-<section>
+<!-- ===================== 01 — このブランドが提供するもの ===================== -->
+<section id="chapter01">
   <div class="wrap">
-    <div class="label-row fade"><span class="ln"></span><p class="eyebrow">what you're looking for</p><span class="ln"></span></div>
-    <h2 class="big fade">「五つの石」とは。</h2>
-    <p class="jp-body fade">スリランカ占星術で導き出した、あなたに必要な宝石の種類を指します。買ったものと、自分の手で掘り当てたもの。同じ石でも、意味がまったく違います。</p>
+    <div class="chapter-tag fade"><span><span class="num">01</span>what we provide</span></div>
+    <h2 class="big fade">このブランドが<br>提供するもの。</h2>
+    <div class="def-block fade">
+      <p>占星術鑑定 → スリランカでの宝石原石採掘 → 世界に一つだけのジュエリー製作を、一気通貫で提供します。</p>
+      <p>「宝石を買う」のではなく「自分に必要な一石を取りに行く」体験です。</p>
+      <p class="strong">「五つの石」とは、スリランカ占星術で導き出した、あなたに必要な宝石の種類を指します。</p>
+    </div>
   </div>
 </section>
 
-<!-- ===================== CHAPTER 02 — ORIGIN ===================== -->
-<section id="chapter02">
+<section>
   <div class="wrap">
-    <div class="story-chapter fade show">
+    <div class="label-row fade"><span class="ln"></span><p class="eyebrow">seven steps</p><span class="ln"></span></div>
+    <h2 class="big fade">七つの工程</h2>
+
+    <div class="split-row fade-left">
+      <div class="split-photo"><img src="images/v3-step01.png" alt="占星術師による鑑定"></div>
+      <div class="split-text">
+        <span class="idx">01</span>
+        <h4>占星術鑑定</h4>
+        <p>生年月日・出生時刻・出生地から星の配置を読み解きます。30,000円（税込）。鑑定のみで完結しても構いません。</p>
+      </div>
+    </div>
+
+    <div class="split-row reverse fade-right">
+      <div class="split-photo zoom-out"><img src="images/v3-step02.png" alt="五つの宝石と星の導き"></div>
+      <div class="split-text">
+        <span class="idx">02</span>
+        <h4>五つの石の提示</h4>
+        <p>いま、あなたに必要な宝石が5種類提示されます。それぞれの石に宿る意味とともにお伝えします。</p>
+      </div>
+    </div>
+
+    <div class="split-row fade-left">
+      <div class="split-photo"><img src="images/v3-step03.png" alt="プラン・デザインを決める"></div>
+      <div class="split-text">
+        <span class="idx">03</span>
+        <h4>プラン・デザイン決定</h4>
+        <p>3つのプランから選択。リング／ペンダント／ピアスに対応しています。複数のデザインから選ぶ方式で、フルオーダーではありません。</p>
+      </div>
+    </div>
+
+    <div class="split-row reverse fade-right">
+      <div class="split-photo zoom-out"><img src="images/v3-routeA.png" alt="現地採掘"></div>
+      <div class="split-text">
+        <span class="idx">04</span>
+        <h4>採掘</h4>
+        <p>ROUTE A（現地）またはROUTE B（オンライン）から選べます。詳しくは次の章でご紹介します。</p>
+      </div>
+    </div>
+
+    <div class="split-row fade-left">
+      <div class="split-photo"><img src="images/v3-step05.png" alt="石を選定する"></div>
+      <div class="split-text">
+        <span class="idx">05</span>
+        <h4>メインストーン選定</h4>
+        <p>採掘で出てきた石の中から、メインストーンをお選びいただきます。</p>
+      </div>
+    </div>
+
+    <div class="split-row reverse fade-right">
+      <div class="split-photo zoom-out"><img src="images/v3-step06.png" alt="ジュエリー製作・完成イメージ"></div>
+      <div class="split-text">
+        <span class="idx">06 / 07</span>
+        <h4>ジュエリー製作・受け取り</h4>
+        <p>原石を研磨・加工し、鑑別書とともにお渡しします。あの日掘り出した石が、生涯の一石になります。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="price-band fade">
+    <p class="plabel">price</p>
+    <p class="pmain">占星術鑑定　30,000円（税込）</p>
+    <p class="psub">採掘・ジュエリープランの料金は、お問い合わせいただいた方に個別にご案内します</p>
+    <p class="pnote">まずは五つの石を知ることから。プランのお申し込みは、鑑定のあとで結構です。</p>
+  </div>
+</section>
+
+<!-- ===================== 02 — 実際どんな体験ができるのか ===================== -->
+<section id="chapter02" class="panel-raised">
+  <div class="wrap">
+    <div class="chapter-tag fade"><span><span class="num">02</span>the experience</span></div>
+    <h2 class="big fade">実際どんな体験が<br>できるのか。</h2>
+    <p class="jp-body fade">木枠の坑道、泥、砂利を水で洗いザルの底を見る。出るかどうかは、その日にしかわからない。</p>
+
+    <div class="route-split fade" id="routeSplit">
+      <div class="route-panel">
+        <div class="rp-photo"><img src="images/v3-routeA.png" alt="ROUTE A 現地採掘"></div>
+        <div class="rp-body">
+          <div class="rt-en">route a — 現地</div>
+          <h4>スリランカ・ノジリ鉱山で掘る</h4>
+          <ul>
+            <li>自らの手で採掘する現地体験</li>
+            <li>納得のいく石に出会うまで、3回まで掘れます</li>
+            <li>同行は3名まで無料</li>
+            <li>渡航・宿泊はお客様ご自身で手配</li>
+            <li>現地スケジュールはTWO ISLANDSがご案内</li>
+            <li>産出量は日により変動。海外旅行保険への加入を推奨</li>
+          </ul>
+        </div>
+      </div>
+      <div class="route-panel">
+        <div class="rp-photo"><img src="images/v3-routeB.png" alt="ROUTE B バーチャル採掘"></div>
+        <div class="rp-body">
+          <div class="rt-en">route b — オンライン</div>
+          <h4>日本で、採掘を見届ける</h4>
+          <ul>
+            <li>渡航不要。現地スタッフが代理で採掘</li>
+            <li>採掘の工程をアニメーションで視聴</li>
+            <li>原石はスリランカから日本へ配送</li>
+            <li>お手続きはすべてオンラインで完結</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="treasure-card fade">
+      <div class="t-photo"><img src="images/v3-dig-hands.jpeg" alt="トレジャーボックス"></div>
+      <div>
+        <p class="t-en">on-site only</p>
+        <h4>トレジャーボックス</h4>
+        <p>過去の採掘で出た掘り出し物を詰めた、現地限定のサプライズ。現地参加者だけの特別なご案内です。後日、日本国内でお渡しします。</p>
+      </div>
+    </div>
+
+    <div class="receive-strip fade">
+      <div class="r-photo"><img src="images/v3-finished-ring.jpeg" alt="完成したジュエリー"></div>
+      <p>完成したジュエリーは、鑑別書とともに日本国内でお受け取りいただきます。あなたが土の中から掘り出した一石が、生涯の一石になります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 — なぜ提供できるのか ===================== -->
+<section id="chapter03">
+  <div class="wrap">
+    <div class="chapter-tag fade"><span><span class="num">03</span>why we can offer this</span></div>
+    <h2 class="big fade">なぜ、提供<br>できるのか。</h2>
+
+    <div class="why-layout fade" id="whyLayout">
+      <div class="why-photo"><img src="images/v3-speech.png" alt="占星術師と鑑定"></div>
+      <div class="trust-list">
+        <div class="trust-item">
+          <p class="t-en">astrology</p>
+          <h5>占星術の専門性</h5>
+          <p>スリランカ屈指の占星術師が、生年月日・出生時刻・出生地から鑑定します。歴代の大統領・政治家・著名人を鑑定してきた実績を持ちますが、実名・写真は使用しません。</p>
+        </div>
+        <div class="trust-item">
+          <p class="t-en">local base</p>
+          <h5>現地基盤</h5>
+          <p>スリランカ・ノジリ鉱山という実際の産地と提携。現地パートナーとの協業体制のもと、価格・デザイン・石の選定を運営しています。</p>
+        </div>
+        <div class="trust-item">
+          <p class="t-en">quality</p>
+          <h5>品質保証の仕組み</h5>
+          <p>0.5カラット以上の石のみを対象とし、鑑別書を添付します。契約金額分の石は、採掘結果に関わらず必ずご用意します。</p>
+        </div>
+        <div class="trust-item">
+          <p class="t-en">honesty</p>
+          <h5>誠実性の担保</h5>
+          <p>「石は出ないことがある」ことを、先に明示します。資産運用・投資目的ではないことも明言し、過大な期待を作らない設計にしています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 — このブランドの世界観 ===================== -->
+<section id="chapter04" class="panel-raised">
+  <div class="wrap">
+    <div class="chapter-tag fade"><span><span class="num">04</span>our worldview</span></div>
+    <h2 class="big fade">このブランドの<br>世界観。</h2>
+
+    <div class="story-chapter fade">
       <p class="en-tag">two islands</p>
       <h3>二つの島の物語</h3>
-      <p>インド洋に浮かぶ島、スリランカ。</p>
-      <p>太平洋に浮かぶ島、日本。</p>
-      <p>海を6,500km隔てた二つの島国には、思いがけないほど深いつながりがある。</p>
-      <p>日本には、八百万の神という言葉があります。山、森、岩、滝、海。自然そのものに、目に見えないものの存在を感じてきた国です。</p>
-      <p>スリランカは、世界有数の宝石産出国です。サファイア、ルビー、キャッツアイ、ムーンストーン。その多くは、土の中に眠る一つの原石から始まります。</p>
-      <p>だから私たちは、宝石が並ぶ店ではなく、宝石が生まれる大地へ向かいます。</p>
+      <p>インド洋に浮かぶ島、スリランカ。太平洋に浮かぶ島、日本。海を6,500km隔てた二つの島国には、思いがけないほど深いつながりがあります。</p>
+      <p>日本には、八百万の神という言葉があります。自然そのものに、目に見えないものの存在を感じてきた国です。スリランカは、世界有数の宝石産出国。その多くは、土の中に眠る一つの原石から始まります。</p>
+    </div>
 
-      <p class="en-tag" style="margin-top:56px;">our origin</p>
+    <div class="split-row myth-split fade-right">
+      <div class="split-photo zoom-out"><img src="images/v3-yakushima.webp" alt="屋久島、八百万の神々の島"></div>
+      <div class="split-text">
+        <span class="idx">chapter</span>
+        <h4>八百万の神々の島</h4>
+        <p>山、森、岩、滝、海。日本人は古来、自然そのものに神を見出してきました。屋久島の森はその象徴です。</p>
+      </div>
+    </div>
+
+    <div class="split-row myth-split reverse fade-left">
+      <div class="split-photo"><img src="images/v3-srilanka.jpg" alt="スリランカ、宝石の島"></div>
+      <div class="split-text">
+        <span class="idx">chapter</span>
+        <h4>宝石の島、スリランカ</h4>
+        <p>サファイア、ルビー、キャッツアイ、ムーンストーン。世界有数の宝石産出国で、私たちは宝石が並ぶ店ではなく、宝石が生まれる大地へ向かいます。</p>
+      </div>
+    </div>
+
+    <div class="story-chapter fade">
+      <p class="en-tag">our origin</p>
+      <h3>創業のきっかけ</h3>
       <div class="origin-quote">「石には、一つ一つ神様が宿っているんだ」</div>
-      <p>スリランカで長く宝石を扱ってきた友人が、なんでもないことのように、そう言いました。</p>
-      <p>調べていくうちに、私たちは気づきます。富を司る神。勝利を授ける神。転機を導く神。それらはすべて、日本の神々と対応していたのです。</p>
-      <p>ラクシュミは、弁財天に。カタラガマは、建御雷神に。シヴァは、大国主命に。6,500km隔てた二つの島国が、まったく同じことを信じていた。</p>
+      <p>スリランカで長く宝石を扱ってきた友人が、なんでもないことのように、そう言いました。調べていくうちに、私たちは気づきます。富を司る神。勝利を授ける神。転機を導く神。それらはすべて、日本の神々と対応していたのです。</p>
       <p class="strong">私たちが売っているのは、宝石ではありません。今のあなたに必要な神様と出会う、その旅です。</p>
       <p class="sig">— SERENDIB 創業者</p>
     </div>
 
-    <div class="story-chapter fade">
-      <p class="en-tag">a hand once offered</p>
-      <h3>私たちが、忘れていないこと。</h3>
-      <p>1951年9月6日、サンフランシスコ。</p>
-      <p>日本の戦後処理を決める講和会議には、51か国の代表が集まっていた。</p>
-      <p>議場では、厳しい賠償請求と、日本の主権制限が語られていた。米・英・中・ソによる分割統治の案も、この国の未来として存在していた。</p>
-      <p>青森から函館へ渡るのに、査証が要るかもしれない。当時の日本には、それが現実の想像だった。</p>
-      <p>その席で、セイロン代表のJ・R・ジャヤワルダナが演壇に立つ。彼は、法句経の一節を引いた。</p>
+    <div class="split-row myth-split fade-left">
+      <div class="split-photo"><img src="images/v3-night-silhouette.png" alt="星空と人のシルエット"></div>
+      <div class="split-text">
+        <span class="idx">1951</span>
+        <h4>私たちが、忘れていないこと。</h4>
+        <p>1951年9月6日、サンフランシスコ講和会議。セイロン代表J・R・ジャヤワルダナは法句経の一節を引き、日本への賠償請求を放棄すると告げました。</p>
+      </div>
+    </div>
+
+    <div class="story-chapter fade" style="margin-top:60px;">
       <div class="story-quote"><p>憎悪は憎悪によって止むことなく、<br>ただ愛によってのみ止む。</p></div>
-      <p>そして、日本への賠償請求を放棄すると告げた。被害を受けた側の国が、敗戦国を擁護したのだった。</p>
-      <p>日本は、分割されなかった。そして翌年、独立を回復し、国際社会へ戻っていく。</p>
-      <p>外務省は、この演説について「厳しい制裁を求めていた一部の戦勝国をも動かしたとも言われ、国際社会復帰への道につながる象徴的な出来事」と記している。</p>
+      <p>被害を受けた側の国が、敗戦国を擁護した。日本は分割されず、翌年には独立を回復し、国際社会へ戻っていきます。外務省は、この演説を「国際社会復帰への道につながる象徴的な出来事」と記しています。</p>
       <p>6,500km離れた島国が、かつて日本に差し出した手。私たちがスリランカへ向かう理由は、宝石が採れるからだけではありません。</p>
     </div>
 
@@ -362,7 +549,7 @@ body{padding-bottom:0;}
       </form>
     </div>
 
-    <div class="story-chapter fade" style="border-top:none;padding-top:0;margin-top:100px;">
+    <div class="story-chapter fade" style="margin-top:100px;">
       <p class="en-tag">pantheon — 8柱</p>
       <h3>スリランカの神々と、日本の神々。</h3>
       <p class="center" style="max-width:560px;margin:0 auto 12px;">占星術師の監修のもと、その対応を紐解きました。</p>
@@ -374,21 +561,18 @@ body{padding-bottom:0;}
         <div class="g-theme">守護</div>
         <p>世界を維持する神。日本では、すべてを照らす太陽の神として。</p>
         <div class="g-shrine">— 伊勢神宮</div>
-        <div class="g-stones">石：ガーネット／トルマリン／水晶／ペリドット／アメジスト ほか</div>
       </div>
       <div class="god-card">
         <div class="g-pair">ガネーシャ ── 事代主命（恵比寿神）</div>
         <div class="g-theme">成功</div>
         <p>障害を取り除く象頭の神。日本では、福をもたらす笑顔の神として。</p>
         <div class="g-shrine">— 美保神社</div>
-        <div class="g-stones">石：ホワイト／ブルー／バイカラーサファイア／キャッツアイ ほか</div>
       </div>
       <div class="god-card">
         <div class="g-pair">ラクシュミ ── 市杵島姫命（弁財天）</div>
         <div class="g-theme">財運</div>
         <p>蓮の上に立つ女神。日本では水辺に祀られる。</p>
         <div class="g-shrine">— 厳島神社</div>
-        <div class="g-stones">石：イエローサファイア／シトリン／ルチルクォーツ ほか</div>
       </div>
       <div class="gods-hidden" id="godsHidden">
         <div class="god-card">
@@ -396,178 +580,44 @@ body{padding-bottom:0;}
           <div class="g-theme">勝利</div>
           <p>戦いを司る神。日本では、雷とともに現れる武の神として。</p>
           <div class="g-shrine">— 鹿島神宮</div>
-          <div class="g-stones">石：パープルサファイア／スタールビー／スターサファイア／ラピスラズリ ほか</div>
         </div>
         <div class="god-card">
           <div class="g-pair">シヴァ ── 大国主命</div>
           <div class="g-theme">転機</div>
           <p>破壊と再生の神。日本では、国を造り、譲った神として。</p>
           <div class="g-shrine">— 出雲大社</div>
-          <div class="g-stones">石：ピンクサファイア／アクアマリン／ローズクォーツ／カーネリアン ほか</div>
         </div>
         <div class="god-card">
           <div class="g-pair">サマン ── 金山彦神・大山津見神</div>
           <div class="g-theme">採掘の守護</div>
           <p>聖なる山を守る神。日本では、鉱と山を司る神として。</p>
           <div class="g-shrine">— 南宮大社</div>
-          <div class="g-stones">石：ゴールデンサファイア／ルチルトパーズ ほか</div>
         </div>
         <div class="god-card">
           <div class="g-pair">パッティニ ── 木花之佐久夜毘売</div>
           <div class="g-theme">純潔</div>
           <p>貞節を象徴する女神。日本では、花のように咲く姫神として。</p>
           <div class="g-shrine">— 富士山本宮浅間大社</div>
-          <div class="g-stones">石：アイオライト／フリーサイズサファイア ほか</div>
         </div>
         <div class="god-card">
           <div class="g-pair">ガンバラ ── 猿田彦神</div>
           <div class="g-theme">道開き</div>
           <p>境界を守る神。日本では、道の先に立ち導く神として。</p>
           <div class="g-shrine">— 椿大神社</div>
-          <div class="g-stones">石：ヘソナイトガーネット ほか</div>
         </div>
       </div>
     </div>
     <button type="button" class="gods-more" id="godsMore">残り5柱を見る</button>
 
     <p class="pantheon-note fade">あなたの石が決まったとき、日本で参るべき場所も、同時に決まります。<br>※神々の対応関係および石にまつわる記載は、両国に伝わる伝承・文化に基づくご提案です。特定の効果・ご利益を保証するものではありません。</p>
-  </div>
-</section>
 
-<!-- ===================== CHAPTER 03 — JOURNEY ===================== -->
-<section id="chapter03">
-  <div class="wrap">
-    <div class="label-row fade"><span class="ln"></span><p class="eyebrow">the journey</p><span class="ln"></span></div>
-    <h2 class="big fade">体験の流れ</h2>
-    <p class="jp-body fade">星は、答えを教えてくれるものではなく、自分では選ばないものを突きつけてくるもの。<br>全部で七つの工程があります。そのうち、あなたにしかできないものが一つあります。</p>
-
-    <div class="craft-list">
-      <div class="craft-row fade">
-        <div class="craft-photo-sm"><img src="images/craft-stars.jpg" alt="占星術師による鑑定"></div>
-        <div class="craft-body">
-          <span class="craft-idx">01</span>
-          <div><h4>占星術師による鑑定</h4><p>スリランカ屈指の占星術師が、あなたの生年月日・出生時刻・出生地から星の配置を読み解きます。旅は、ここから始まります。</p></div>
-        </div>
+    <div class="split-row myth-split reverse fade-right" style="margin-top:100px;">
+      <div class="split-photo zoom-out"><img src="images/v3-legacy.png" alt="次の世代へ受け継ぐ"></div>
+      <div class="split-text">
+        <span class="idx">closing</span>
+        <h4>受け取ったものを、次の世代へ。</h4>
+        <p>世界有数の宝石ベルトに位置するスリランカの大地から、あなた自身の手で掘り出した一石。それは、次の時代を生きる大切な人の未来へ、継承していただけます。</p>
       </div>
-      <div class="craft-row fade">
-        <div class="craft-body">
-          <span class="craft-idx">02</span>
-          <div><h4>必要な五つの石を知る</h4><p>いま、あなたに必要な宝石が5種類提示されます。それぞれの石に宿る神々の意味と、あなたの人生のテーマとのつながりをあわせてお伝えします。</p></div>
-        </div>
-      </div>
-      <div class="craft-row fade">
-        <div class="craft-body">
-          <span class="craft-idx">03</span>
-          <div><h4>プラン・デザインを決める</h4><p>3つのプランから選択し、デザインとサイズを決定します。リングのほか、ペンダント・ピアスもお選びいただけます。プラン料金は、お問い合わせいただいた方に個別にご案内します。</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="step04 fade">
-      <p class="en-tag">04 ── ここだけ大きく扱う</p>
-      <div class="step04-photo"><img src="images/craft-dig.jpg" alt="ノジリ鉱山での採掘"></div>
-      <p><b style="color:var(--ink);">掘る。</b></p>
-      <p>ノジリ鉱山の坑道は、木の枠で組まれている。足元は泥。</p>
-      <p>すくい上げた砂利を水で洗い、ザルの底に何が残るかを見る。</p>
-      <p>出るかどうかは、その日にしかわからない。現地スタッフが横につきますが、掘るのはあなたです。</p>
-    </div>
-
-    <div class="route-grid fade">
-      <div class="route-card">
-        <div class="rc-photo"><img src="images/craft-dig.jpg" alt="ROUTE A 現地採掘"></div>
-        <div class="rt-en">route a</div>
-        <h4>掘りに行く</h4>
-        <ul>
-          <li>スリランカ・ノジリ鉱山で、自らの手で採掘</li>
-          <li>納得のいく石に出会うまで、3回まで掘れます</li>
-          <li>同行は3名まで無料（4名以上は追加費用あり）</li>
-          <li>渡航・宿泊はお客様ご自身で手配していただきます</li>
-          <li>現地スケジュールはTWO ISLANDSよりご案内します</li>
-          <li>現地参加者限定で、トレジャーボックスの特別なご案内があります</li>
-        </ul>
-      </div>
-      <div class="route-card">
-        <div class="rc-photo"><img src="images/myth-hero.jpeg" alt="ROUTE B バーチャル採掘"></div>
-        <div class="rt-en">route b</div>
-        <h4>日本で待つ</h4>
-        <ul>
-          <li>渡航はできない。それでも、自分の石を掘りたい方へ</li>
-          <li>ノジリ鉱山では、現地スタッフがあなたのために実際に採掘を行います</li>
-          <li>その工程を、アニメーションでご覧いただきます</li>
-          <li>掘り出された原石は、スリランカより日本へお届けします</li>
-          <li>お手続きはすべてオンラインで完結します</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="craft-list" style="margin-top:80px;">
-      <div class="craft-row fade">
-        <div class="craft-body">
-          <span class="craft-idx">05</span>
-          <div><h4>出会った石から、一石を選ぶ</h4><p>採掘で出てきた石の中から、メインストーンをお選びいただきます。鑑定で示された5種類のうち、実際に採掘で出た石が対象です。サイド・内側の石は占星術師とTWO ISLANDSが選定し、STEP03で決定したデザインに組み込みます。</p></div>
-        </div>
-      </div>
-      <div class="craft-row fade">
-        <div class="craft-body">
-          <span class="craft-idx">06</span>
-          <div><h4>ジュエリーとして仕立てる</h4><p>原石を研磨・加工し、鑑別書とともにお渡しします。</p></div>
-        </div>
-      </div>
-      <div class="craft-row fade">
-        <div class="craft-body">
-          <span class="craft-idx">07</span>
-          <div><h4>受け取る</h4><p>あの日あなたが大地から掘り出した石が、生涯の一石になります。</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="center fade" style="margin-top:70px;">
-      <div class="cta-pair">
-        <a class="btn-line" href="apply-v3.html">占星術鑑定を申し込む　30,000円（税込）</a>
-        <a class="btn-ghost" href="apply-v3.html?type=consult">まずは無料で相談する（オンライン・30分）</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="label-row fade"><span class="ln"></span><p class="eyebrow">before you decide</p><span class="ln"></span></div>
-    <h2 class="big fade">先に、正直にお伝えします</h2>
-    <div class="honest-block fade">
-      <p>石は、出ないことがあります。3回掘っても出会えなかった場合は、同じ鉱山で過去に採掘された石からお選びいただけます。ご契約金額分の石は、必ずご用意します。</p>
-      <p>完全オーダーメイドではありません。ご用意したデザインから選んでいただく方式です。渡航費・宿泊費はお客様のご負担で、当社では旅行の手配・あっせんは行っておりません。</p>
-      <p>0.5カラット以上の石のみを対象とし、鑑別書を添えてお渡しします。本サービスは資産運用・投資を目的とするものではなく、将来の価値を保証するものではありません。</p>
-    </div>
-
-    <div class="price-table fade">
-      <div class="price-row head"><span>料金</span><span></span></div>
-      <div class="price-row"><span>占星術鑑定</span><span class="amt">30,000円（税込）</span></div>
-      <div class="price-row"><span>採掘・ジュエリープラン</span><span class="amt">お問い合わせいただいた方に個別にご案内</span></div>
-    </div>
-    <p class="price-note fade">プランのお申し込みは、鑑定のあとで結構です。まずは五つの石を知ることから始めてください。</p>
-
-    <div class="center fade" style="margin-top:44px;">
-      <div class="cta-pair">
-        <a class="btn-line" href="apply-v3.html">占星術鑑定を申し込む　30,000円（税込）</a>
-        <a class="btn-ghost" href="apply-v3.html?type=consult">まずは無料で相談する（オンライン・30分）</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CHAPTER 04 — BEGIN ===================== -->
-<section id="chapter04">
-  <div class="wrap">
-    <div class="label-row fade"><span class="ln"></span><p class="eyebrow">use cases</p><span class="ln"></span></div>
-    <h2 class="big fade">その一石に、どんな物語を残しますか。</h2>
-    <div class="usecase-list fade">
-      <div>人生の節目を迎えている</div>
-      <div>婚約指輪を探している</div>
-      <div>結婚記念に残るものを持ちたい</div>
-      <div>自分自身への区切りが欲しい</div>
-      <div>一般的なジュエリーでは物足りない</div>
-      <div>「意味のあるもの」を身につけたい</div>
     </div>
   </div>
 </section>
@@ -584,11 +634,11 @@ body{padding-bottom:0;}
       </div>
       <div class="faq-row">
         <div class="faq-q"><span>スリランカに行かなくても参加できますか。</span><span class="mk">+</span></div>
-        <div class="faq-a"><p>現地に渡航する「ROUTE A」と、渡航不要でオンライン完結する「ROUTE B（バーチャル採掘）」の2つの道をご用意しています。採掘された原石はスリランカより日本へお届けします。</p></div>
+        <div class="faq-a"><p>現地に渡航する「ROUTE A」と、渡航不要でオンライン完結する「ROUTE B（バーチャル採掘）」の2つの道をご用意しています。</p></div>
       </div>
       <div class="faq-row">
         <div class="faq-q"><span>何人まで一緒に採掘できますか。</span><span class="mk">+</span></div>
-        <div class="faq-a"><p>現地スタッフとの同行は3名までは無料です。4名以上の場合は+100,000円（税別）で承ります。お一人でも、ご夫婦・ご家族での参加も可能です。</p></div>
+        <div class="faq-a"><p>現地スタッフとの同行は3名までは無料です。4名以上の場合は追加費用で承ります。</p></div>
       </div>
       <div class="faq-row">
         <div class="faq-q"><span>採掘で石が出なかった場合はどうなりますか。</span><span class="mk">+</span></div>
@@ -655,8 +705,8 @@ body{padding-bottom:0;}
     <div class="foot-cols">
       <div class="foot-col">
         <h5>about</h5>
-        <a href="#chapter02">two islands / origin</a>
-        <a href="#chapter03">journey</a>
+        <a href="#chapter04">worldview</a>
+        <a href="#chapter02">experience</a>
         <a href="#faq">faq</a>
         <a href="index.html">既存サイト（index）</a>
       </div>
@@ -680,7 +730,7 @@ body{padding-bottom:0;}
 </footer>
 
 <div class="follow-cta" id="followCta">
-  <a href="#chapter03" id="followCtaLink">鑑定について知る</a>
+  <a href="#chapter01" id="followCtaLink">鑑定について知る</a>
 </div>
 
 <script>
@@ -754,9 +804,9 @@ body{padding-bottom:0;}
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); } });
     }, {threshold:.15});
-    document.querySelectorAll('.fade').forEach(function(el){ io.observe(el); });
+    document.querySelectorAll('.fade,.fade-left,.fade-right').forEach(function(el){ io.observe(el); });
   } else {
-    document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('show'); });
+    document.querySelectorAll('.fade,.fade-left,.fade-right').forEach(function(el){ el.classList.add('show'); });
   }
 
   var godsMore = document.getElementById('godsMore');
@@ -768,18 +818,17 @@ body{padding-bottom:0;}
     });
   }
 
-  /* v3 follow CTA bar: text switches by scroll position */
   var followCta = document.getElementById('followCta');
   var followLink = document.getElementById('followCtaLink');
   function updateFollowCta(){
     var doc = document.documentElement;
     var pct = (window.scrollY / (doc.scrollHeight - window.innerHeight)) * 100;
-    if(pct < 15){
+    if(pct < 12){
       followCta.classList.remove('show');
-    } else if(pct < 50){
+    } else if(pct < 55){
       followCta.classList.add('show');
       followLink.textContent = '鑑定について知る';
-      followLink.href = '#chapter03';
+      followLink.href = '#chapter01';
       followLink.className = '';
     } else {
       followCta.classList.add('show');
