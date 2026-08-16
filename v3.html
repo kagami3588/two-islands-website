@@ -434,7 +434,7 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
     </div>
 
     <div class="split-row reverse fade-right">
-      <div class="split-photo zoom-out"><img src="images/v3-step06.png" alt="ジュエリー製作・完成イメージ"></div>
+      <div class="split-photo zoom-out"><img src="images/v3-crafting.jpeg" alt="ジュエリー製作の様子"></div>
       <div class="split-text">
         <span class="idx">06 / 07</span>
         <h4>ジュエリー製作・受け取り</h4>
@@ -463,7 +463,7 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
     </div>
 
     <div class="receive-strip fade">
-      <div class="r-photo"><img src="images/v3-finished-ring.jpeg" alt="完成したジュエリー"></div>
+      <div class="r-photo"><img src="images/v3-finished-ring2.jpeg" alt="完成したジュエリー"></div>
       <p>完成したジュエリーは、鑑別書とともに日本国内でお受け取りいただきます。あなたが土の中から掘り出した一石が、生涯の一石になります。</p>
     </div>
   </div>
@@ -476,7 +476,7 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
     <h2 class="big fade">なぜ、提供<br>できるのか。</h2>
 
     <div class="why-layout fade" id="whyLayout">
-      <div class="why-photo why-photo-placeholder"><span>ノジリ鉱山の写真</span></div>
+      <div class="why-photo"><img src="images/v3-mine-location.jpeg" alt="ノジリ鉱山"></div>
       <div class="trust-list">
         <div class="trust-item">
           <p class="t-en">astrology</p>
@@ -744,9 +744,10 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
 
 <script>
 (function(){
-  function wrapChars(el){
+  function wrapChars(el, step, cap){
     if(!el || el.dataset.wrapped) return;
     el.dataset.wrapped = '1';
+    step = step || 0.028; cap = cap || 1.4;
     var nodes = Array.prototype.slice.call(el.childNodes);
     el.innerHTML = '';
     var i = 0;
@@ -755,7 +756,7 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
         node.textContent.split('').forEach(function(ch){
           var span = document.createElement('span');
           span.className = 'word';
-          span.style.transitionDelay = (i * 0.028) + 's';
+          span.style.transitionDelay = Math.min(i * step, cap) + 's';
           span.textContent = ch === ' ' ? ' ' : ch;
           el.appendChild(span);
           i++;
@@ -766,7 +767,8 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
       }
     });
   }
-  document.querySelectorAll('h2.big, .hero-copy h1').forEach(wrapChars);
+  document.querySelectorAll('h2.big, .hero-copy h1, .split-text h4, .story-chapter h3, .trust-item h5, .route-panel h4, .treasure-card h4').forEach(function(el){ wrapChars(el, 0.028, 1.2); });
+  document.querySelectorAll('.split-text p, .def-block p, .jp-body, .story-chapter p, .trust-item p, .route-panel ul li, .treasure-card p, .receive-strip p, .price-band p, .god-card p, .honest-block p').forEach(function(el){ wrapChars(el, 0.01, 0.9); });
 
   var loader = document.getElementById('loader');
   var loaderCatch = document.getElementById('loaderCatch');
