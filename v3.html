@@ -125,9 +125,11 @@ body.menu-open .menu-overlay .menu-cta{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.dig-anim{opacity:1;filter:none;letter-spacing:0;color:var(--ink);transition:none;}.dig-anim::after{left:0;right:0;transition:none;}}
 
 /* character-by-character reveal for headings, triggered by ancestor .show */
-.word{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.word{display:inline-block;opacity:0;transform:translateY(.42em);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);}
 .show .word{opacity:1;transform:none;}
-@media(prefers-reduced-motion:reduce){.word{opacity:1;transform:none;transition:none;}}
+.word-lg{display:inline-block;opacity:0;transform:translateY(.62em) scale(.92) rotateX(24deg);filter:blur(4px);transform-origin:bottom center;transition:opacity .8s cubic-bezier(.22,1.15,.34,1),transform .8s cubic-bezier(.22,1.15,.34,1),filter .8s ease;}
+.show .word-lg{opacity:1;transform:none;filter:blur(0);}
+@media(prefers-reduced-motion:reduce){.word,.word-lg{opacity:1;transform:none;filter:none;transition:none;}}
 
 section{padding:15vh 0;}
 section.panel-raised{background:var(--bg-raised);}
@@ -165,11 +167,15 @@ h2.big{text-align:center;font-family:"Playfair Display",serif;font-weight:400;fo
 .split-row:first-of-type{border-top:none;}
 .split-row.reverse .split-photo{order:2;}
 .split-row.reverse .split-text{order:1;}
-.split-photo{aspect-ratio:4/5;overflow:hidden;background:var(--bg-raised);}
+.split-photo{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg-raised);}
 .split-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.82);transform:scale(1.14);transition:transform 9s cubic-bezier(.16,1,.3,1);}
 .split-photo.zoom-out img{transform:scale(1);}
 .split-row.show .split-photo img{transform:scale(1);}
 .split-row.show .split-photo.zoom-out img{transform:scale(1.1);}
+.split-photo::before{content:"";position:absolute;inset:0;background:var(--bg);z-index:2;transform-origin:left;transition:transform 1.1s cubic-bezier(.76,0,.24,1) .1s;}
+.split-row.reverse .split-photo::before{transform-origin:right;}
+.split-row.show .split-photo::before{transform:scaleX(0);}
+@media(prefers-reduced-motion:reduce){.split-photo::before{transition:none;}}
 .split-text .idx{font-family:"Playfair Display",serif;font-size:13px;color:var(--muted);margin-bottom:14px;display:block;}
 .split-text h4{font-family:"Shippori Mincho",serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:16px;letter-spacing:.02em;}
 .split-text p{font-family:"Shippori Mincho",serif;font-size:13px;color:var(--body);line-height:2.3;}
@@ -744,10 +750,10 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
 
 <script>
 (function(){
-  function wrapChars(el, step, cap){
+  function wrapChars(el, step, cap, cls){
     if(!el || el.dataset.wrapped) return;
     el.dataset.wrapped = '1';
-    step = step || 0.028; cap = cap || 1.4;
+    step = step || 0.028; cap = cap || 1.4; cls = cls || 'word';
     var nodes = Array.prototype.slice.call(el.childNodes);
     el.innerHTML = '';
     var i = 0;
@@ -755,7 +761,7 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
       if(node.nodeType === 3){
         node.textContent.split('').forEach(function(ch){
           var span = document.createElement('span');
-          span.className = 'word';
+          span.className = cls;
           span.style.transitionDelay = Math.min(i * step, cap) + 's';
           span.textContent = ch === ' ' ? ' ' : ch;
           el.appendChild(span);
@@ -767,8 +773,8 @@ footer{border-top:1px solid var(--line);padding:64px 6vw 40px;}
       }
     });
   }
-  document.querySelectorAll('h2.big, .hero-copy h1, .split-text h4, .story-chapter h3, .trust-item h5, .route-panel h4, .treasure-card h4').forEach(function(el){ wrapChars(el, 0.028, 1.2); });
-  document.querySelectorAll('.split-text p, .def-block p, .jp-body, .story-chapter p, .trust-item p, .route-panel ul li, .treasure-card p, .receive-strip p, .price-band p, .god-card p, .honest-block p').forEach(function(el){ wrapChars(el, 0.01, 0.9); });
+  document.querySelectorAll('h2.big, .hero-copy h1, .split-text h4, .story-chapter h3, .trust-item h5, .route-panel h4, .treasure-card h4').forEach(function(el){ wrapChars(el, 0.032, 1.1, 'word-lg'); });
+  document.querySelectorAll('.split-text p, .def-block p, .jp-body, .story-chapter p, .trust-item p, .route-panel ul li, .treasure-card p, .receive-strip p, .price-band p, .god-card p, .honest-block p').forEach(function(el){ wrapChars(el, 0.01, 0.9, 'word'); });
 
   var loader = document.getElementById('loader');
   var loaderCatch = document.getElementById('loaderCatch');
